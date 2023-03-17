@@ -8,8 +8,23 @@
 <a href="{{information.twitter}}"><i class="fab fa-twitter"></i></a>
 <a href="{{information.instagram}}"><i class="fab fa-instagram"></i></a>
 <a href="{{information.linkedin}}"><i class="fab fa-linkedin"></i></a>
-
 {% endblock header-socials %}
+{% block mobile-contact %}
+<div class="contact-list mb-30">
+    <h4>Contact Info</h4>
+    <ul>
+        <li><i class="flaticon-history"></i>Sunday to Thursday</li>
+        <li><i class="flaticon-pin"></i><a href="https://www.google.com/maps/place/{{information.address}}">{{information.address}}</a></li>
+        <li><i class="fal fa-envelope"></i><a href="mailto:{{information.email}}">{{information.email}}</span></a></li>
+    </ul>
+    <div class="sidebar__menu--social">
+        <a href="{{information.facebook}}"><i class="fab fa-facebook-f"></i></a>
+        <a href="{{information.twitter}}"><i class="fab fa-twitter"></i></a>
+        <a href="{{information.instagram}}"><i class="fab fa-instagram"></i></a>
+        <a href="{{information.linkedin}}"><i class="fab fa-linkedin"></i></a>
+    </div>
+</div>
+{% endblock mobile-contact %}
 {% block body %}
 
     <main>

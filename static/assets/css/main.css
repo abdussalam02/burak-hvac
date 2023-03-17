@@ -3794,6 +3794,9 @@ li.header--social a:hover i {
 }
 
 @media (max-width: 767px) {
+  .icon-bar {
+    display: none;
+  }
   .fact-area-2.pt-130 {
     padding-top: 40px;
     padding-bottom: 35px;

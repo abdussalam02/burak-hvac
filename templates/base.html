@@ -131,20 +131,9 @@
             <div class="side-info-content">
                 <div class="mobile-menu"></div>
                 <div class="contact-infos mb-30">
-                    <div class="contact-list mb-30">
-                        <h4>Contact Info</h4>
-                        <ul>
-                            <li><i class="flaticon-history"></i>Sunday to Thursday</li>
-                            <li><i class="flaticon-pin"></i>28/4 Palmal, London</li>
-                            <li><i class="fal fa-envelope"></i><a href="https://wphix.com/cdn-cgi/l/email-protection#dab3b4bcb59aa9a3b9b2b5e8eef4b9b5b7"><span class="__cf_email__" data-cfemail="a7cec9c1c8e7d4dec4cfc8959389c4c8ca">[email&#160;protected]</span></a></li>
-                        </ul>
-                        <div class="sidebar__menu--social">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-google"></i></a>
-                        </div>
-                    </div>
+                    {% block mobile-contact %}
+
+                    {% endblock mobile-contact %}
                 </div>
             </div>
         </div>
@@ -176,7 +165,7 @@
                                 <li><a href="{% url 'index' %}">HOME</a></li>
                                 <li><a href="{% url 'services' %}">SERVICES</a></li>
                                 <li><a href="{% url 'products' %}">PRODUCTS</a></li>
-                                <li><a href="{% url 'projects' %}">PROJECTS</a></li>
+                                <li><a href="{% url 'projects' %}">PORTFOLIO</a></li>
                                 <li><a href="{% url 'blogs' %}">BLOG</a></li>
                                 <li><a href="{% url 'jobs' %}">CAREER</a></li>
                                 <li><a href="{% url 'faqs' %}">FAQ'S</a></li>
