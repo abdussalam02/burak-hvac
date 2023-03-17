@@ -1,0 +1,514 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block address %} <a href="https://www.google.com/maps/place/{{information.address}}">{{information.address}}</a> {% endblock address %}
+{% block email %}<a href="mailto:{{information.email}}"><span class="__cf_email__" data-cfemail="771e19111837040e141f1845435914181a">{{information.email}}</span></a>{% endblock email %}
+{% block header-socials %}
+<a href="{{information.facebook}}"><i class="fab fa-facebook-f"></i></a>
+<a href="{{information.twitter}}"><i class="fab fa-twitter"></i></a>
+<a href="{{information.instagram}}"><i class="fab fa-instagram"></i></a>
+<a href="{{information.linkedin}}"><i class="fab fa-linkedin"></i></a>
+{% endblock header-socials %}
+{% block body %}
+
+    <main>
+        <div class="icon-bar">
+            {% load social_share %}
+            {% post_to_facebook object_or_url '<i class="fab fa-facebook-f" aria-hidden="true"></i>' %}
+
+            {% post_to_twitter "{{service.title}} - Check it out!" object_or_url '<i class="fab fa-twitter" aria-hidden="true"></i>'%}
+          
+            {% post_to_whatsapp object_or_url '<i class="fab fa-whatsapp"></i>'%}
+          
+            {% post_to_telegram "{{service.title}} - Check it out!" object_or_url '<i class="fab fa-telegram-plane" aria-hidden="true"></i>'%}                       
+
+        </div>
+        <!-- hero area start here -->
+        <section class="slider-area fix">
+            <div class="slider-active swiper-container">
+                <div class="swiper-wrapper">
+                    {% for car in carousals %}
+                    <div class="single-slider slider-height d-flex align-items-center swiper-slide"
+                        data-swiper-autoplay="5000">
+                        <div class="slide-bg" data-background="{{car.image.url}}"></div>
+                        <div class="custom-container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="aslider z-index">
+                                        <div class="aslider--video mb-20" data-animation="fadeInUp" data-delay=".3s">
+                                            <a class="venobox aslider--video__wrapper" data-autoplay="true"
+                                                data-vbtype="video" href="{{car.video}}">
+                                                <i class="fas fa-play aslider--video__icon"></i>
+                                                <h4 class="aslider--video__title">Intro video</h4>
+                                            </a>
+                                        </div>
+                                        <h2 class="aslider--title mb-30" data-animation="fadeInUp" data-delay=".5s">
+                                            {{car.heading}}</h2>
+                                        <h3 class="aslider--subtitle mb-50" data-animation="fadeInUp" data-delay=".7s">
+                                            {{car.sub_heading}}</h3>
+                                        <div class="aslider--btn" data-animation="fadeInUp" data-delay=".9s">
+                                            <a href="{% url 'contact' %}" class="theme-btn theme-btn-blue">Appointment Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev slide-prev"><i class="far fa-long-arrow-left"></i></div>
+                <div class="swiper-button-next slide-next"><i class="far fa-long-arrow-right"></i></div>
+            </div>
+        </section>
+        <!-- hero area end here -->
+
+        <!-- cta area start here -->
+        <section class="cta-area wow fadeInUp" data-wow-delay=".3s">
+            <div class="custom-container">
+                <div class="cta--wrapper">
+                    <div class="cta--single theme-bg">
+                        <i class="flaticon-snowfall cta--icon"></i>
+                        <h3 class="cta--title">Residential Repair Service</h3>
+                        <div class="cta--link">
+                            <a href="{% url "services" %}" class="cta--link__icon"><i><img
+                                        src="{% static 'assets/img/icon/cta-icon-1.png' %}" class="img-fluid" alt="img"></i></a>
+                        </div>
+                    </div>
+                    <div class="cta--single black-soft-bg">
+                        <i class="flaticon-business-and-trade cta--icon"></i>
+                        <h3 class="cta--title">Commercial Repair Service</h3>
+                        <div class="cta--link">
+                            <a href="{% url "services" %}" class="cta--link__icon"><i><img
+                                        src="{% static 'assets/img/icon/cta-icon-1.png' %}" class="img-fluid" alt="img"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- cta area end here -->
+
+        <!-- about area start here -->
+        <section class="about-area pt-120">
+            <div class="custom-container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="aabout-img-space">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="aabout-img img-lg mb-30 wow fadeInUp" data-wow-delay=".3s">
+                                        <img src="{% static 'assets/img/about/about-img-1.jpg' %}" class="img-fluid" alt="img">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="aabout-img mb-30 wow fadeInUp" data-wow-delay=".5s">
+                                        <img src="{% static 'assets/img/about/about-img-2.jpg' %}" class="img-fluid" alt="img">
+                                    </div>
+                                    <div class="aabout-img_text mb-30 black-soft-bg wow fadeInUp" data-wow-delay=".7s">
+                                        <h2 class="aabout-img_text-title">{{information.projects}}+ <span>Project Done</span></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-10">
+                        <div class="aabout-text mr-150 mb-30">
+                            <div class="section-title-wrapper mb-30 wow fadeInUp" data-wow-delay=".3s">
+                                <h6 class="subtitle mb-20"><img src="{% static 'assets/img/icon/subtitle-icon.png' %}"
+                                        class="img-fluid" alt="img"> About company</h6>
+                                <h2 class="section-title">We are most popular<br> Service & Product base company</h2>
+                            </div>
+                            <p class="mb-40 wow fadeInUp" data-wow-delay="0.6s">"Our mission is to provide efficient and
+                                effective AC services and product at fair prices, with a focus on customer satisfaction
+                                and long-term relationships."</p>
+                            <div class="aabout-qoute mb-50 wow fadeInUp" data-wow-delay="0.9s">
+                                <i class="fas fa-quote-right float-bob-x"></i>
+                                <h4 class="z-index">Don’t feel heat when there is best air <br>conditioning seat </h4>
+                            </div>
+                            <div class="aabout--profile__wrapper wow fadeInUp" data-wow-delay="1.2s">
+                                <div class="aabout--btn">
+                                    <a href="{% url 'about' %}" class="theme-btn">Read More</a>
+                                </div>
+                                <div class="aabout--profile">
+                                    <div class="aabout--profile__img">
+                                        <img src="{% static 'assets/img/icon/saeed.jpg' %}" class="img-fluid" alt="img">
+                                    </div>
+                                    <div class="aabout--profile__text">
+                                        <h4>Saeed Lanjekar</h4>
+                                        <span>CEO - HVAC</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- about area end here -->
+
+        <!-- fact area start here -->
+        <section class="fact-area pt-80 pb-70">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-sm-6">
+                        <div class="afact mb-30 wow fadeInUp" data-wow-delay=".3s">
+                            <div class="afact--img mb-20">
+                                <img src="{% static 'assets/img/icon/fact-icon-1.png' %}" class="img-fluid z-index" alt="img">
+                            </div>
+                            <div class="afact--text">
+                                <div class="afact--text__title">
+                                    <h2>{{information.members}}</h2>
+                                </div>
+                                <div class="afact--text__content">
+                                    <h4>Member</h4>
+                                    <h3>Professional</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-sm-6">
+                        <div class="afact mb-30 wow fadeInUp" data-wow-delay=".6s">
+                            <div class="afact--img mb-20">
+                                <img src="{% static 'assets/img/icon/fact-icon-2.png' %}" class="img-fluid z-index" alt="img">
+                            </div>
+                            <div class="afact--text">
+                                <div class="afact--text__title">
+                                    <h2>{{information.projects}}</h2>
+                                </div>
+                                <div class="afact--text__content">
+                                    <h4>Project</h4>
+                                    <h3>Completed</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-sm-6">
+                        <div class="afact mb-30 wow fadeInUp" data-wow-delay=".9s">
+                            <div class="afact--img mb-20">
+                                <img src="{% static 'assets/img/icon/fact-icon-3.png' %}" class="img-fluid z-index" alt="img">
+                            </div>
+                            <div class="afact--text">
+                                <div class="afact--text__title">
+                                    <h2>{{information.branch}}</h2>
+                                </div>
+                                <div class="afact--text__content">
+                                    <h4>Total</h4>
+                                    <h3>Branches</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-sm-6">
+                        <div class="afact mb-30 wow fadeInUp" data-wow-delay="1.2s">
+                            <div class="afact--img mb-20">
+                                <img src="{% static 'assets/img/icon/fact-icon-4.png' %}" class="img-fluid z-index" alt="img">
+                            </div>
+                            <div class="afact--text">
+                                <div class="afact--text__title">
+                                    <h2>{{information.clients}}</h2>
+                                </div>
+                                <div class="afact--text__content">
+                                    <h4>Client</h4>
+                                    <h3>Satisfaction</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- fact area end here -->
+
+        <!-- service area start here -->
+        <section class="service-area pt-120 pb-90" data-background="{% static 'assets/img/service/service-bg.jpg' %}">
+            <div class="container">
+                <div class="row align-items-end mb-70">
+                    <div class="col-md-8">
+                        <div class="section-title-wrapper wow fadeInUp" data-wow-delay=".2s">
+                            <h6 class="subtitle mb-20"><img src="{% static 'assets/img/icon/subtitle-icon.png' %}" class="img-fluid"
+                                    alt="img"> Featured Services</h6>
+                            <h2 class="section-title">Popular repair service</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <div class="service__header__btn wow fadeInUp" data-wow-delay=".2s">
+                            <a href="{% url 'services' %}" class="theme-btn">More Service</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <ul class="nav custom-service-tab" id="myTab" role="tablist">
+                            {% for service in services %}
+                            <li class="nav-item" role="presentation">
+                                <div {% if forloop.counter == 2 %}class="nav-link active" {% else %}class="nav-link"{% endif %}  id="{{tag}}{{service.id}}-tab" data-bs-toggle="tab" data-bs-target="#{{tag}}{{service.id}}"
+                                    role="tab" aria-controls="{{tag}}{{service.id}}" {% if forloop.counter == 1 %} aria-selected="true" {% else %}aria-selected="false"{% endif %} >
+                                    <div class="aservice-box wow fadeInUp" data-wow-delay=".3s">
+                                        <div class="aservice mb-30 ">
+                                            <div class="aservice__icon z-index">
+                                                <i class="flaticon-technical-support"></i>
+                                            </div>
+                                            <div class="aservice__text z-index">
+                                                <span>Commercial</span>
+                                                <h6 class="aservice__text--title"><a href="{% url 'service_detail' service.slug %}">{{service.title}}</a></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="tab-content" id="myTabContent">
+                            {% for service in services %}
+                            <div {% if forloop.counter == 2 %}class="tab-pane fade show active" {% else %}class="tab-pane fade"{% endif %}  id="{{tag}}{{service.id}}" role="tabpanel" aria-labelledby="{{tag}}{{service.id}}-tab">
+                                <div class="aservice__img mb-30">
+                                    <img src="{{service.image.url}}" class="img-fluid" alt="img">
+                                    <div class="aservice__img--text">
+                                        <p>"{{service.description|truncatechars:150}}"</p>
+                                        <a href="{% url 'service_detail' service.slug %}" class="aservice__img--text__link">{{service.title}}
+                                            <i><img src="{% static 'assets/img/icon/contact-arrow.png' %}" class="img-fluid"
+                                                    alt="img"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- service area end here -->
+
+        <!-- contact area start here -->
+        <section class="contact-area">
+            <div class="container">
+                <div class="row align-items-end">
+                    <div class="col-lg-7">
+                        <div class="acontact__img wow fadeInUp" data-wow-delay=".3s">
+                            <img src="{% static 'assets/img/contact/contact-img-1.png' %}" class="img-fluid" alt="img">
+                            <div class="acontact__img--text wow fadeInUp" data-wow-delay=".5s">
+                                <h1 class="acontact__img--text__backtitle">2</h1>
+                                <h2 class="z-index"><span>{{information.experience}}+Year</span> Working Experience</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="acontact__form wow fadeInUp" data-wow-delay=".8s">
+                            <h3 class="acontact__form--title">Free Estimate</h3>
+                            <form action="{% url 'message' %}" method="post">
+                                {% csrf_token %}
+                                <input type="text" name="name" placeholder="Your Name">
+                                <input type="tel" name="phone" placeholder="Phone Number">
+                                <div class="select__field--arrow">
+                                    <select name="subject">
+                                        <option value="">Installation & Commissioning</option>
+                                        <option value="">Annual Maintenance Contract / CMC</option>
+                                        <option value="">Repairing and Services</option>
+                                        <option value="">AC on rent</option>
+                                        <option value="">AC shifting</option>
+                                        <option value="">AC Purchase</option>
+                                        <option value="">AC Sales</option>
+                                    </select>
+                                </div>
+                                <textarea name="message" placeholder="Write Message"></textarea>
+                                <button type="submit">Free Estimate</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- portfolio area start here -->
+        <section class="portfolio-area pt-120 pb-80">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <div class="section-title-wrapper mb-70 wow fadeInUp" data-wow-delay=".3s">
+                            <h6 class="subtitle mb-20"><img src="{% static 'assets/img/icon/subtitle-icon.png' %}" class="img-fluid"
+                                    alt="img">Featured Products</h6>
+                            <h2 class="section-title">Our Quality Products</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <div class="service__header__btn wow fadeInUp" data-wow-delay=".2s">
+                            <a href="{% url 'products' %}" class="theme-btn">More Products</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row aportfolio-active">
+                    {% for product in products %}
+                    <div class="col-xl-4 col-md-6 grid-item cat1 cat3">
+                        <div class="aportfolio mb-40 wow fadeInUp" data-wow-delay=".3s">
+                            <div class="aportfolio__img">
+                                <img src="{{product.image.url}}" class="img-fluid ind-thumbnail" alt="img">
+                                <div class="aportfolio__img--icon">
+                                    <a class="venobox" data-gall="gallery01"
+                                        href="{{product.image.url}}">
+                                        <i class="fas fa-search"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="aportfolio__text aportfolio__inner--text z-index">
+                                <h4 class="aportfolio__text--title"><a href="{% url 'product_detail' product.slug %}">{{product.title}}</a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- portfolio area end here -->
+
+        <!-- choose us area start here -->
+        <section class="position-relative">
+            <div class="why__choose--bg d-lg-none">
+                <img src="{% static 'assets/img/choose/choose-bg.jpg' %}" class="img-fluid z-index" alt="img">
+            </div>
+            <div class="choose-area" data-background="{% static 'assets/img/choose/choose-bg.jpg' %}">
+                <div class="choose-bg-right" data-background="{% static 'assets/img/choose/choose-bg2.jpg' %}"></div>
+                <div class="choose--content__wrapper z-index">
+                    <div class="container">
+                        <div class="row justify-content-end">
+                            <div class="col-lg-7">
+                                <div class="choose--content">
+                                    <div class="section-title-wrapper mb-35 wow fadeInUp" data-wow-delay=".3s">
+                                        <h6 class="subtitle mb-20"><img src="{% static 'assets/img/icon/subtitle-icon.png' %}"
+                                                class="img-fluid" alt="img"> Why Choose Us</h6>
+                                        <h2 class="section-title">Empower lifes forever <br> better living</h2>
+                                    </div>
+                                    <p class="mb-40 wow fadeInUp" data-wow-delay=".6s">Customer service: The service
+                                        should provide excellent customer service to ensure that you are satisfied with
+                                        their work and can rely on them for any future needs.</p>
+                                    <div class="achoose mb-40 wow fadeInUp" data-wow-delay=".9s">
+                                        <div class="achoose__icon theme-bg-blue">
+                                            <i class="flaticon-technician"></i>
+                                        </div>
+                                        <div class="achoose__text">
+                                            <h4 class="achoose__text--title">Expert Repairman</h4>
+                                            <p>"When it comes to air conditioning repairs, experience matters. An
+                                                experienced technician has the knowledge and skills to ensure that your
+                                                system is repaired correctly the first time."</p>
+                                        </div>
+                                    </div>
+                                    <div class="achoose mb-40 wow fadeInUp" data-wow-delay="1.2s">
+                                        <div class="achoose__icon theme-bg">
+                                            <i class="flaticon-satisfaction"></i>
+                                        </div>
+                                        <div class="achoose__text">
+                                            <h4 class="achoose__text--title">Satisfied Services</h4>
+                                            <p>"We pride ourselves on providing timely and efficient AC repair services,
+                                                minimizing downtime and saving you money on costly repairs."</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- choose us area end here -->
+        <br>
+        <br><br><br><br>
+
+        <!-- testimonial area start here -->
+        <section class="testimonial-area" data-background="{% static 'assets/img/testimonial/testimonial-bg.jpg' %}">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="atestimonial__img wow fadeInUp" data-wow-delay=".5s">
+                            <img src="{% static 'assets/img/testimonial/testimonial-img-1.png' %}" alt="img">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="atestimonial__text wow fadeInUp" data-wow-delay="1s">
+                            <div class="section-title-wrapper mb-20">
+                                <h6 class="subtitle mb-20"><img src="{% static 'assets/img/icon/subtitle-icon.png' %}"
+                                        class="img-fluid" alt="img"> Testimonials</h6>
+                                <h2 class="section-title text-white">Happy customer says <br> about service</h2>
+                            </div>
+                            <div class="atestimonial-active swiper-container">
+                                <div class="swiper-wrapper">
+                                    {% for test in testimonial %}
+                                    <div class="atestimonial swiper-slide">
+                                        <p class="text-white mb-40">"{{test.comment}}" </p>
+                                        <div class="atestimonial__client d-flex align-items-center">
+                                            <div class="atestimonial__client--img">
+                                                <img src="{{test.photo.url}}" class="img-fluid" alt="img">
+                                            </div>
+                                            <div class="atestimonial__client--text">
+                                                <h4 class="atestimonial__client--text__title">{{test.name}}</h4>
+                                                <span class="text-white">{{test.designation}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <!-- If we need pagination -->
+                                <!-- <div class="swiper-pagination"></div> -->
+
+                                <!-- If we need navigation buttons -->
+                                <div class="swiper-button-prev slide-prev"><i class="far fa-long-arrow-alt-left"></i>
+                                </div>
+                                <div class="swiper-button-next slide-next"><i class="far fa-long-arrow-alt-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- testimonial area end here -->
+
+        {% if clients %}
+        <!-- brand area end here -->
+        <div class="brand-area grey-bg pt-100 pb-100">
+            <div class="container">
+                <div class="brand-active swiper-container">
+                    <div class="swiper-wrapper">
+                        {% for client in clients %}
+                        <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay=".{{client.id}}s"
+                            data-swiper-autoplay="5000">
+                            <a href="#"><img src="{{client.logo.url}}" class="img-fluid" alt="img"></a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- brand area start here -->
+        {% endif %}
+    </main>
+
+
+{% endblock body %}
+{% block phone %}
+<h4><a href="tel:{{information.phone}}">{{information.phone}}</a></h4>
+{% endblock phone %}
+{% block faddress %}
+<div class="col-lg-3 col-sm-6">
+    <div class="footer__widget mb-30 pl-30 wow fadeInUp" data-wow-delay=".9s">
+        <h4 class="footer__widget--title">Contact Info</h4>
+        <ul class="widget__contact">
+            <li></li>
+            <li><span>Support:</span><a href="tel:{{information.phone_2}}">{{information.phone_2}}</a></li>
+            <li><span>Email:</span> <a
+                    href="mailto:{{information.email}}"><span
+                        class="__cf_email__"
+                        data-cfemail="cba2a5ada48baaa2b9bda2a8aef9ffe5a8a4a6">{{information.email}}</span></a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock faddress %}
+{% block footer-socials %}
+<a href="{{information.facebook}}"><i class="fab fa-facebook-f"></i></a>
+<a href="{{information.twitter}}"><i class="fab fa-twitter"></i></a>
+<a href="{{information.instagram}}"><i class="fab fa-instagram"></i></a>
+<a href="{{information.linkedin}}"><i class="fab fa-linkedin"></i></a>
+{% endblock footer-socials %}

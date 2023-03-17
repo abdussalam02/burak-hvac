@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Faq's{% endblock title %}
+{% block address %} <a href="https://www.google.com/maps/place/{{information.address}}">{{information.address}}</a> {% endblock address %}
+{% block email %}<a href="mailto:{{information.email}}"><span class="__cf_email__" data-cfemail="771e19111837040e141f1845435914181a">{{information.email}}</span></a>{% endblock email %}
+{% block header-socials %}
+<a href="{{information.facebook}}"><i class="fab fa-facebook-f"></i></a>
+<a href="{{information.twitter}}"><i class="fab fa-twitter"></i></a>
+<a href="{{information.instagram}}"><i class="fab fa-instagram"></i></a>
+<a href="{{information.linkedin}}"><i class="fab fa-linkedin"></i></a>
+
+{% endblock header-socials %}
+{% block body %}
+
+    <main>
+        <div class="icon-bar">
+            {% load social_share %}
+            {% post_to_facebook object_or_url '<i class="fab fa-facebook-f" aria-hidden="true"></i>' %}
+
+            {% post_to_twitter "{{service.title}} - Check it out!" object_or_url '<i class="fab fa-twitter" aria-hidden="true"></i>'%}
+          
+            {% post_to_whatsapp object_or_url '<i class="fab fa-whatsapp"></i>'%}
+          
+            {% post_to_telegram "{{service.title}} - Check it out!" object_or_url '<i class="fab fa-telegram-plane" aria-hidden="true"></i>'%}                       
+
+        </div>
+        <!-- page title area start here -->
+        <div class="page-title-area pt-210 pb-180" data-background="assets/img/bg/page-banner.jpg">
+            <div class="container">
+                <div class="page-title-icon">
+                    <i class="flaticon-air-conditioner hero__icon hero__icon1"></i>
+                    <i class="flaticon-heating hero__icon hero__icon2"></i>
+                    <i class="flaticon-vacuum-cleaner hero__icon hero__icon3"></i>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title text-center">
+                            <h2 class="breadcrumb-title">Client Query</h2>
+                            <div class="breadcrumb-menu">
+                                <nav class="breadcrumb-trail breadcrumbs">
+                                    <ul class="trail-items">
+                                        <li class="trail-item trail-begin"><a href="{% url 'index' %}">Home</a>
+                                        </li>
+                                        <li class="trail-item trail-end"><span>Client Query</span></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- page title area end here -->
+
+        <!-- faq area start here -->
+        <section class="faq-area-3 pt-120 pb-90">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="afaq__banner mb-50 wow fadeInUp" data-wow-delay=".3s">
+                            <img src="{% static 'assets/img/faq/faq-img-4.png' %}" class="img-fluid" alt="img">
+                            <div class="afaq__banner--text text-center">
+                                <h2 class="afaq__banner--text__title">Need Free Consultancy</h2>
+                                <p>Class menaeos hymenaeos erate vulputate convallis felises in curabitur </p>
+                                <div class="afaq__banner--text__btn">
+                                    <a href="{% url 'contact' %}" class="theme-btn">Send Message</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="afaq__text afaq__text--3 mb-30 mr-165 wow fadeInUp" data-wow-delay=".6s">
+                            <div class="section-title-wrapper mb-50">
+                                <h6 class="subtitle mb-20"><img src="{% static 'assets/img/icon/subtitle-icon.png' %}" class="img-fluid" alt="img"> Common Question</h6>
+                                <h2 class="section-title">Solutions for an every <br>repair problem</h2>
+                            </div>
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Can you remove anything from my credit report
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Pede nullam nullas it ultricies corne mone molestie erate montes adipiscing leo est magnis imperdiet fermentum auctor hymenae laoreet tempor vestibulum dictumst
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            Why do I need reports from all 3 credit bureaus
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Pede nullam nullas it ultricies corne mone molestie erate montes adipiscing leo est magnis imperdiet fermentum auctor hymenae laoreet tempor vestibulum dictumst
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            When can I expect to see my credit score go up
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Pede nullam nullas it ultricies corne mone molestie erate montes adipiscing leo est magnis imperdiet fermentum auctor hymenae laoreet tempor vestibulum dictumst
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFour">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                            Can you remove anything from my credit report
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Pede nullam nullas it ultricies corne mone molestie erate montes adipiscing leo est magnis imperdiet fermentum auctor hymenae laoreet tempor vestibulum dictumst
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingEight">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                            Engine suddenly lost power, went into limp mode
+                                        </button>
+                                    </h2>
+                                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Pede nullam nullas it ultricies corne mone molestie erate montes adipiscing leo est magnis imperdiet fermentum auctor hymenae laoreet tempor vestibulum dictumst
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFive">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                            Cannot find any local tech familiar with this vintage
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Pede nullam nullas it ultricies corne mone molestie erate montes adipiscing leo est magnis imperdiet fermentum auctor hymenae laoreet tempor vestibulum dictumst
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingSix">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                            Transmission and shifting sensor no problems
+                                        </button>
+                                    </h2>
+                                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Pede nullam nullas it ultricies corne mone molestie erate montes adipiscing leo est magnis imperdiet fermentum auctor hymenae laoreet tempor vestibulum dictumst
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingSeven">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                            Can you remove anything from my credit report
+                                        </button>
+                                    </h2>
+                                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Pede nullam nullas it ultricies corne mone molestie erate montes adipiscing leo est magnis imperdiet fermentum auctor hymenae laoreet tempor vestibulum dictumst
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- faq area end here -->
+    </main>
+
+  {% endblock body %}
+
+{% block phone %}
+<h4><a href="tel:{{information.phone}}">{{information.phone}}</a></h4>
+{% endblock phone %}
+{% block faddress %}
+<div class="col-lg-3 col-sm-6">
+    <div class="footer__widget mb-30 pl-30 wow fadeInUp" data-wow-delay=".9s">
+        <h4 class="footer__widget--title">Contact Info</h4>
+        <ul class="widget__contact">
+            <li></li>
+            <li><span>Support:</span><a href="tel:{{information.phone_2}}">{{information.phone_2}}</a></li>
+            <li><span>Email:</span> <a
+                    href="mailto:{{information.email}}"><span
+                        class="__cf_email__"
+                        data-cfemail="cba2a5ada48baaa2b9bda2a8aef9ffe5a8a4a6">{{information.email}}</span></a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock faddress %}
+{% block footer-socials %}
+<a href="{{information.facebook}}"><i class="fab fa-facebook-f"></i></a>
+<a href="{{information.twitter}}"><i class="fab fa-twitter"></i></a>
+<a href="{{information.instagram}}"><i class="fab fa-instagram"></i></a>
+<a href="{{information.linkedin}}"><i class="fab fa-linkedin"></i></a>
+
+{% endblock footer-socials %}

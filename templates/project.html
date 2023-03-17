@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Portfolio{% endblock title %}
+{% block address %} <a href="https://www.google.com/maps/place/{{information.address}}">{{information.address}}</a> {% endblock address %}
+{% block email %}<a href="mailto:{{information.email}}"><span class="__cf_email__" data-cfemail="771e19111837040e141f1845435914181a">{{information.email}}</span></a>{% endblock email %}
+{% block header-socials %}
+<a href="{{information.facebook}}"><i class="fab fa-facebook-f"></i></a>
+<a href="{{information.twitter}}"><i class="fab fa-twitter"></i></a>
+<a href="{{information.instagram}}"><i class="fab fa-instagram"></i></a>
+<a href="{{information.linkedin}}"><i class="fab fa-linkedin"></i></a>
+
+{% endblock header-socials %}
+{% block body %}
+
+    <main>
+        <div class="icon-bar">
+            {% load social_share %}
+            {% post_to_facebook object_or_url '<i class="fab fa-facebook-f" aria-hidden="true"></i>' %}
+
+            {% post_to_twitter "{{service.title}} - Check it out!" object_or_url '<i class="fab fa-twitter" aria-hidden="true"></i>'%}
+          
+            {% post_to_whatsapp object_or_url '<i class="fab fa-whatsapp"></i>'%}
+          
+            {% post_to_telegram "{{service.title}} - Check it out!" object_or_url '<i class="fab fa-telegram-plane" aria-hidden="true"></i>'%}                       
+
+        </div>
+        <!-- page title area start here -->
+        <div class="page-title-area pt-210 pb-180" data-background="assets/img/bg/page-banner.jpg">
+            <div class="container">
+                <div class="page-title-icon">
+                    <i class="flaticon-air-conditioner hero__icon hero__icon1"></i>
+                    <i class="flaticon-heating hero__icon hero__icon2"></i>
+                    <i class="flaticon-vacuum-cleaner hero__icon hero__icon3"></i>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title text-center">
+                            <h2 class="breadcrumb-title">Our Portfolio</h2>
+                            <div class="breadcrumb-menu">
+                                <nav class="breadcrumb-trail breadcrumbs">
+                                    <ul class="trail-items">
+                                        <li class="trail-item trail-begin"><a href="{% url 'index' %}">Home</a>
+                                        </li>
+                                        <li class="trail-item trail-end"><span>Our Portfolio</span></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- page title area end here -->
+
+        <!-- portfolio area start here -->
+        <section class="portfolio-area pt-120 pb-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-title-wrapper text-center mb-70 wow fadeInUp"  data-wow-delay=".3s">
+                            <h6 class="subtitle mb-20"><img src="{% static 'assets/img/icon/subtitle-icon.png' %}" class="img-fluid" alt="img"> Portfolio</h6>
+                            <h2 class="section-title">Our Portfolio</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="aportfolio-menu aportfolio-menu-inner text-center mb-40 wow fadeInUp"  data-wow-delay=".6s">
+                            <button data-filter="*" class="active">All</button>
+                            <button data-filter=".Testing">Testing</button>
+                            <button data-filter=".Cleaning">Cleaning</button>
+                            <button data-filter=".Repair">Repair</button>
+                            <button data-filter=".Heating">Heating</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row aportfolio-active">
+                    {% for project in projects %}
+                    <div class="col-xl-4 col-md-6 grid-item {{project.category}}">
+                        <div class="aportfolio mb-40 wow fadeInUp"  data-wow-delay=".3s">
+                            <div class="aportfolio__img">
+                                <img src="{{project.image.url}}" class="img-fluid project" alt="img">
+                                <div class="aportfolio__img--icon">
+                                    <a class="venobox" data-gall="gallery01" href="{{project.image.url}}">
+                                        <i class="fas fa-search"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="aportfolio__text aportfolio__inner--text z-index">
+                                <span>{{project.category}}</span>
+                                <h4 class="aportfolio__text--title"><a href="project-details.html">{{project.name}}</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}      
+                </div>
+            </div>
+        </section>
+        <!-- portfolio area end here -->
+
+        <!-- newsletter area start here -->
+        <section class="newsletter-area-3 wow fadeInUp" data-wow-delay=".5s">
+            <div class="newsletter__wrapper--3">
+                <div class="news__subscribe theme-bg text-center pt-110 pb-100">
+                    <div class="section-title-wrapper mb-50">
+                        <h2 class="section-title text-white">Weekly offers or update<br> from newsletter</h2>
+                    </div>
+                    <form action="{% url 'subscribe' %}" method="post">
+                        {% csrf_token %}
+                        <div class="field">
+                            <input type="text" name="email" placeholder="Email Address">
+                        </div>
+                        <button class="theme-btn black-btn">Subscribe</button>
+                    </form>
+                </div>
+                <div class="news__service black-soft-bg text-center pt-110 pb-120">
+                    <div class="section-title-wrapper mb-50">
+                        <h2 class="section-title text-white">Emergency installation or <br>repair services</h2>
+                    </div>
+                    <div class="news__service--number">
+                        <div class="news__service--number__icon">
+                            <img src="{% static 'assets/img/icon/subs-icon-1.png' %}" class="img-fluid" alt="img">
+                        </div>
+                        <div class="news__service--number__btn">
+                            <a href="tel:{{information.phone_2}}" class="theme-btn">{{information.phone}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+{% endblock body %}
+
+{% block phone %}
+<h4><a href="tel:{{information.phone}}">{{information.phone}}</a></h4>
+{% endblock phone %}
+{% block faddress %}
+<div class="col-lg-3 col-sm-6">
+    <div class="footer__widget mb-30 pl-30 wow fadeInUp" data-wow-delay=".9s">
+        <h4 class="footer__widget--title">Contact Info</h4>
+        <ul class="widget__contact">
+            <li></li>
+            <li><span>Support:</span><a href="tel:{{information.phone_2}}">{{information.phone_2}}</a></li>
+            <li><span>Email:</span> <a
+                    href="mailto:{{information.email}}"><span
+                        class="__cf_email__"
+                        data-cfemail="cba2a5ada48baaa2b9bda2a8aef9ffe5a8a4a6">{{information.email}}</span></a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock faddress %}
+{% block footer-socials %}
+<a href="{{information.facebook}}"><i class="fab fa-facebook-f"></i></a>
+<a href="{{information.twitter}}"><i class="fab fa-twitter"></i></a>
+<a href="{{information.instagram}}"><i class="fab fa-instagram"></i></a>
+<a href="{{information.linkedin}}"><i class="fab fa-linkedin"></i></a>
+
+{% endblock footer-socials %}

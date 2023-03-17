@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{data.title}}{% endblock title %}
+{% block address %}<a href="https://www.google.com/maps/place/{{information.address}}">{{information.address}}</a> {% endblock address %}
+{% block email %}<a href="mailto:{{information.email}}"><span class="__cf_email__" data-cfemail="771e19111837040e141f1845435914181a">{{information.email}}</span></a>{% endblock email %}
+{% block header-socials %}
+<a href="{{information.facebook}}"><i class="fab fa-facebook-f"></i></a>
+<a href="{{information.twitter}}"><i class="fab fa-twitter"></i></a>
+<a href="{{information.instagram}}"><i class="fab fa-instagram"></i></a>
+<a href="{{information.linkedin}}"><i class="fab fa-linkedin"></i></a>
+{% endblock header-socials %}
+{% block body %}
+    <main>
+        <div class="icon-bar">
+            {% load social_share %}
+            {% post_to_facebook object_or_url '<i class="fab fa-facebook-f" aria-hidden="true"></i>' %}
+
+            {% post_to_twitter "{{service.title}} - Check it out!" object_or_url '<i class="fab fa-twitter" aria-hidden="true"></i>'%}
+          
+            {% post_to_whatsapp object_or_url '<i class="fab fa-whatsapp"></i>'%}
+          
+            {% post_to_telegram "{{service.title}} - Check it out!" object_or_url '<i class="fab fa-telegram-plane" aria-hidden="true"></i>'%}                       
+
+        </div>
+        <!-- page title area start here -->
+        <div class="page-title-area pt-210 pb-180" data-background="assets/img/bg/page-banner.jpg">
+            <div class="container">
+                <div class="page-title-icon">
+                    <i class="flaticon-air-conditioner hero__icon hero__icon1"></i>
+                    <i class="flaticon-heating hero__icon hero__icon2"></i>
+                    <i class="flaticon-vacuum-cleaner hero__icon hero__icon3"></i>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title text-center">
+                            <h2 class="breadcrumb-title">{{data.title}}</h2>
+                            <div class="breadcrumb-menu">
+                                <nav class="breadcrumb-trail breadcrumbs">
+                                    <ul class="trail-items">
+                                        <li class="trail-item trail-begin"><a href="{% url 'index' %}">Home</a>
+                                        </li>
+                                        <li class="trail-item trail-end"><a href="{% url 'blogs' %}">Blogs</a></li>
+                                        <li class="trail-item trail-end"><span>{{data.title}}</span></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- page title area end here -->
+
+        <!-- blog area start here -->
+        <section class="blog-details-area pt-120 pb-70">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="blog__details--wrapper mr-50 mb-50">
+                            <div class="ablog ablog-4 mb-55">
+                                <div class="ablog__text4">
+                                    <div class="ablog__meta ablog__meta4">
+                                        <h5><i class="far fa-calendar-check"></i>‎ ‎ {{data.date|date:"M d Y"}} </h5>
+                                    </div>
+                                    <h3 class="ablog__text--title4 mb-20">{{data.title}}</h3>
+
+                                    {% for blog in blogs %}
+                                    {{blog.writing|safe}}
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </section>
+        <!-- blog area end here -->
+    </main>
+
+{% endblock body %}
+
+{% block phone %}
+<h4><a href="tel:{{information.phone}}">{{information.phone}}</a></h4>
+{% endblock phone %}
+{% block faddress %}
+<div class="col-lg-3 col-sm-6">
+    <div class="footer__widget mb-30 pl-30 wow fadeInUp" data-wow-delay=".9s">
+        <h4 class="footer__widget--title">Contact Info</h4>
+        <ul class="widget__contact">
+            <li></li>
+            <li><span>Support:</span><a href="tel:{{information.phone_2}}">{{information.phone_2}}</a></li>
+            <li><span>Email:</span> <a
+                    href="mailto:{{information.email}}"><span
+                        class="__cf_email__"
+                        data-cfemail="cba2a5ada48baaa2b9bda2a8aef9ffe5a8a4a6">{{information.email}}</span></a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock faddress %}
+{% block footer-socials %}
+<a href="{{information.facebook}}"><i class="fab fa-facebook-f"></i></a>
+<a href="{{information.twitter}}"><i class="fab fa-twitter"></i></a>
+<a href="{{information.instagram}}"><i class="fab fa-instagram"></i></a>
+<a href="{{information.linkedin}}"><i class="fab fa-linkedin"></i></a>
+
+{% endblock footer-socials %}

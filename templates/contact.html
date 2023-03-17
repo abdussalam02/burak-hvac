@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Contact{% endblock title %}
+{% block address %} <a href="https://www.google.com/maps/place/{{information.address}}">{{information.address}}</a> {% endblock address %}
+{% block email %}<a href="mailto:{{information.email}}"><span class="__cf_email__" data-cfemail="771e19111837040e141f1845435914181a">{{information.email}}</span></a>{% endblock email %}
+{% block header-socials %}
+<a href="{{information.facebook}}"><i class="fab fa-facebook-f"></i></a>
+<a href="{{information.twitter}}"><i class="fab fa-twitter"></i></a>
+<a href="{{information.instagram}}"><i class="fab fa-instagram"></i></a>
+<a href="{{information.linkedin}}"><i class="fab fa-linkedin"></i></a>
+
+{% endblock header-socials %}
+
+{% block body %}
+    <main>
+        <div class="icon-bar">
+            {% load social_share %}
+            {% post_to_facebook object_or_url '<i class="fab fa-facebook-f" aria-hidden="true"></i>' %}
+
+            {% post_to_twitter "{{service.title}} - Check it out!" object_or_url '<i class="fab fa-twitter" aria-hidden="true"></i>'%}
+          
+            {% post_to_whatsapp object_or_url '<i class="fab fa-whatsapp"></i>'%}
+          
+            {% post_to_telegram "{{service.title}} - Check it out!" object_or_url '<i class="fab fa-telegram-plane" aria-hidden="true"></i>'%}                       
+
+        </div>
+        <!-- page title area start here -->
+        <div class="page-title-area pt-210 pb-180" data-background="assets/img/bg/page-banner.jpg">
+            <div class="container">
+                <div class="page-title-icon">
+                    <i class="flaticon-air-conditioner hero__icon hero__icon1"></i>
+                    <i class="flaticon-heating hero__icon hero__icon2"></i>
+                    <i class="flaticon-vacuum-cleaner hero__icon hero__icon3"></i>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title text-center">
+                            <h2 class="breadcrumb-title">contact us</h2>
+                            <div class="breadcrumb-menu">
+                                <nav class="breadcrumb-trail breadcrumbs">
+                                    <ul class="trail-items">
+                                        <li class="trail-item trail-begin"><a href="{% url 'index' %}">Home</a>
+                                        </li>
+                                        <li class="trail-item trail-end"><span>Contact</span></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- page title area end here -->
+
+        <!-- contact inner area start here -->
+        <section class="contact-inner-area pt-120 pb-120 wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="contact__inner">
+                            <div class="contact__inner--img">
+                                <img src="{% static 'assets/img/contact/contact-img-3.jpg' %}" class="img-fluid c-img" alt="img">
+
+                                <div class="news__service--number black-soft-bg contact__inner--img__number">
+                                    <div class="news__service--number__icon">
+                                        <img src="{% static 'assets/img/icon/icon-man.png' %}" class="img-fluid" alt="img">
+                                    </div>
+                                    <div class="news__service--number__btn">
+                                        <a href="tel:" class="theme-btn">02 (555) 520 890 </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact__inner--form service__contact--form">
+                                <div class="section-title-wrapper mb-40">
+                                    <h6 class="subtitle mb-20"><img src="{% static 'assets/img/icon/subtitle-icon.png' %}" class="img-fluid" alt="img"> Get in Touch</h6>
+                                    <h2 class="section-title">Have any question</h2>
+                                </div>
+                                <form action="{% url 'message' %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="field">
+                                        <input type="text" name="name" placeholder="Your Name">
+                                    </div>
+                                    <div class="field">
+                                        <input type="email" name="email" placeholder="Email Address">
+                                    </div>
+                                    <div class="field">
+                                        <input type="text" name="subject" placeholder="Subject">
+                                    </div>
+                                    <div class="field">
+                                        <textarea placeholder="Write Message" name="message"></textarea>
+                                    </div>
+                                    <div class="service__contact--form__btn">
+                                        <button type="submit" class="theme-btn theme-btn-blue">Get Estimate</button>
+                                    </div>
+									<p class="ajax-response"></p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- contact inner area end here -->
+
+        <!-- contact map area start here -->
+        <div class="map-area">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d60306.496187635035!2d73.042127!3d19.144647!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c18251fdabcd%3A0x511df7c5b46843a1!2sBURAK%20Metering%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1678619419048!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <!-- contact map area end here -->
+
+
+    </main>
+
+   {% endblock body %}
+
+{% block phone %}
+<h4><a href="tel:{{information.phone}}">{{information.phone}}</a></h4>
+{% endblock phone %}
+{% block faddress %}
+<div class="col-lg-3 col-sm-6">
+    <div class="footer__widget mb-30 pl-30 wow fadeInUp" data-wow-delay=".9s">
+        <h4 class="footer__widget--title">Contact Info</h4>
+        <ul class="widget__contact">
+            <li></li>
+            <li><span>Support:</span><a href="tel:{{information.phone_2}}">{{information.phone_2}}</a></li>
+            <li><span>Email:</span> <a
+                    href="mailto:{{information.email}}"><span
+                        class="__cf_email__"
+                        data-cfemail="cba2a5ada48baaa2b9bda2a8aef9ffe5a8a4a6">{{information.email}}</span></a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock faddress %}
+{% block footer-socials %}
+<a href="{{information.facebook}}"><i class="fab fa-facebook-f"></i></a>
+<a href="{{information.twitter}}"><i class="fab fa-twitter"></i></a>
+<a href="{{information.instagram}}"><i class="fab fa-instagram"></i></a>
+<a href="{{information.linkedin}}"><i class="fab fa-linkedin"></i></a>
+
+{% endblock footer-socials %}

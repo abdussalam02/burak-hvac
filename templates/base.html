@@ -1,0 +1,241 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}{% endblock title %} | HVAC</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/favicon.png' %}">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/custom-animation.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/venobox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/backToTop.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/default.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+</head>
+
+<body>
+    
+    <!-- preloader -->
+    <div id="preloader">
+        <div class="preloader">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <!-- preloader end -->
+
+    <!-- back to top start -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <!-- back to top end -->
+
+    <!-- header area start here -->
+    <header>
+        <div class="header-top black-soft-bg d-none d-lg-block">
+            <div class="custom-container">
+                <div class="row align-items-center">
+                    <div class="col-xl-3 col-lg-4">
+                        <div class="header-top-left header-top-left-2">
+                            <span><i class="flaticon-return-of-investment"></i>Opening Time: Monday to Sunday</span>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-8">
+                        <div class="header-top-right header-top-right-2">
+                            <ul>
+                                <li><i class="flaticon-pin"></i>{% block address %}{% endblock address %}</li>
+                                <li><i class="fal fa-envelope"></i>
+                                    {% block email %}{% endblock email %}
+                                </li>
+                                <li class="header--social">
+                                    {% block header-socials %}
+
+                                    {% endblock header-socials %}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-menu header-sticky header-menu-2">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-2 col-8">
+                        <div class="header-logo pt-15 pb-15">
+                            <a href="{% url 'index' %}" style="font-size:30px"><img src="{% static 'assets/img/icon/subtitle-icon.png' %}" class="img-fluid" alt="img"><b>  HVAC</b></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 col-lg-8 col-4">
+                        <div class="main-menu d-none d-lg-block">
+                            <nav id="mobile-menu">
+                                <ul>
+                                    <li><a href="{% url 'index' %}">HOME</a></li>
+                                    <li><a href="{% url 'about' %}">About</a></li>
+                                    <li class="menu-item-has-children"><a href="{% url 'services' %}">SERVICES</a>
+                                        <ul class="sub-menu">
+                                            {% for service in services %}
+                                            <li><a href="{% url 'service_detail' service.slug %}">{{service.title}}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item-has-children"><a href="{% url 'products' %}">PRODUCTS</a>
+                                        <ul class="sub-menu">
+                                            {% for product in products %}
+                                            <li><a href="{% url 'product_detail' product.slug %}">{{product.title}}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                    <li><a href="{% url 'projects' %}">Portfolio</a></li>
+                                    <li><a href="{% url 'blogs' %}">Blog</a></li>
+                                    <li><a href="{% url 'contact' %}">CONTACT</a></li>
+                                    <li><a href="{% url 'jobs' %}">Career</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="side-menu-icon d-lg-none text-end">
+                            <button class="side-toggle"><i class="far fa-bars"></i></button>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-2 d-none d-lg-block">
+                        <div class="header-right header-right-2 text-end">
+                            <ul class="z-index">
+                                <li><a href="{% url 'contact' %}" class="theme-btn">Get Quote</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="fix">
+        <div class="side-info">
+            <button class="side-info-close"><i class="fal fa-times"></i></button>
+            <div class="side-info-content">
+                <div class="mobile-menu"></div>
+                <div class="contact-infos mb-30">
+                    <div class="contact-list mb-30">
+                        <h4>Contact Info</h4>
+                        <ul>
+                            <li><i class="flaticon-history"></i>Sunday to Thursday</li>
+                            <li><i class="flaticon-pin"></i>28/4 Palmal, London</li>
+                            <li><i class="fal fa-envelope"></i><a href="https://wphix.com/cdn-cgi/l/email-protection#dab3b4bcb59aa9a3b9b2b5e8eef4b9b5b7"><span class="__cf_email__" data-cfemail="a7cec9c1c8e7d4dec4cfc8959389c4c8ca">[email&#160;protected]</span></a></li>
+                        </ul>
+                        <div class="sidebar__menu--social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-google"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas-overlay"></div>
+{% block body %}
+
+{% endblock body %}
+    <!-- footer area start here -->
+    <footer data-background="{% static 'assets/img/footer/footer-bg.jpg' %} ">
+        <section class="footer-area pt-115 pb-90">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="footer__widget mb-30 wow fadeInUp" data-wow-delay=".3s">
+                            <h4 class="footer__widget--title">About Us</h4>
+                            <p>"Our mission is to provide efficient and effective AC services at fair prices, with a
+                                focus on customer satisfaction and long-term relationships."</p>
+                            <div class="emg__number">
+                                <h5>Emergency :</h5>
+                                {% block phone %}{% endblock phone %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="footer__widget mb-30 pl-80 wow fadeInUp" data-wow-delay=".6s">
+                            <h4 class="footer__widget--title">Quick Links</h4>
+                            <ul class="widget__links">
+                                <li><a href="{% url 'index' %}">HOME</a></li>
+                                <li><a href="{% url 'services' %}">SERVICES</a></li>
+                                <li><a href="{% url 'products' %}">PRODUCTS</a></li>
+                                <li><a href="{% url 'projects' %}">PROJECTS</a></li>
+                                <li><a href="{% url 'blogs' %}">BLOG</a></li>
+                                <li><a href="{% url 'jobs' %}">CAREER</a></li>
+                                <li><a href="{% url 'faqs' %}">FAQ'S</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    {% block faddress %}
+
+                    {% endblock faddress %}
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="footer__widget mb-30 wow fadeInUp" data-wow-delay="1.2s">
+                            <h4 class="footer__widget--title">Newsletter</h4>
+                            <p>Get every week update from airvice</p>
+                            <form action="{% url 'subscribe' %}" method="post" class="widget__subscribe">
+                                {% csrf_token %}
+                                <div class="field">
+                                    <input name="email" type="email" placeholder="Enter Email">
+                                </div>
+                                <button type="submit" class="theme-btn">Subscirbe Now</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="copyright-area copyright-border">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-7">
+                        <div class="copyright__text">
+                            <span>Copyright © 2021 &nbsp <a href="#">HVAC</a>. &nbsp All Rights Reserved.</span>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="copyright__social text-end">
+                            {% block footer-socials %}
+                            {% endblock footer-socials %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer area end here -->
+
+
+    <!-- JS here -->
+    <script src="{% static 'assets/js/vendor/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/slick.min.js' %}"></script>
+    <script src="{% static 'assets/js/swiper-bundle.js' %}"></script>
+    <script src="{% static 'assets/js/venobox.min.js' %}"></script>
+    <script src="{% static 'assets/js/backToTop.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.meanmenu.min.js' %}"></script>
+    <script src="{% static 'assets/js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/ajax-form.js' %}"></script>
+    <script src="{% static 'assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+
+</html>
