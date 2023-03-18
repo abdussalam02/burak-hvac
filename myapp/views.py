@@ -131,7 +131,7 @@ def subscribe(request):
             Subscription(email=email).save()
             subject = 'Thank you for subscribing to our website.'
             text = f'''Your subscription has been confirmed!
-              You are now part of our exclusive group of subscribers who will be the first to hear about our new products, services and promotions.'''
+            You are now part of our exclusive group of subscribers who will be the first to hear about our new products, services and promotions.'''
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [email]
             send_mail(subject=subject, message=text, from_email=email_from, recipient_list=recipient_list )
@@ -161,8 +161,7 @@ def careers(request, id):
         data = Career(name=name, phone = phone, email=email, position=position, about=about, resume=resume )
         data.save()
         subject = 'You have received a resume from Burak HVAC Pvt. Ltd. website.'
-        text = f'''
-        Name of the candidate is {name} applying for the position of {position}. Check out his resume on https://web-production-d702.up.railway.app/admin/career
+        text = f'''Name of the candidate is {name} applying for the position of {position}. Check out his resume on https://web-production-d702.up.railway.app/admin/career
         Details of the candidate:
         Name: {name}
         Phone: {phone}
