@@ -74,14 +74,16 @@
                     <div class="col-12">
                         <div class="contact__inner">
                             <div class="contact__inner--img">
-                                <img src="{% static 'assets/img/contact/contact-img-3.jpg' %}" class="img-fluid c-img" alt="img">
+                                <div class="map-area">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d60306.496187635035!2d73.042127!3d19.144647!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c18251fdabcd%3A0x511df7c5b46843a1!2sBURAK%20Metering%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1678619419048!5m2!1sen!2sin" width="230" height="280" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
 
                                 <div class="news__service--number black-soft-bg contact__inner--img__number">
                                     <div class="news__service--number__icon">
                                         <img src="{% static 'assets/img/icon/icon-man.png' %}" class="img-fluid" alt="img">
                                     </div>
                                     <div class="news__service--number__btn">
-                                        <a href="tel:" class="theme-btn">02 (555) 520 890 </a>
+                                        <a href="tel:{{information.phone}}" class="theme-btn">{{information.phone}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -93,16 +95,16 @@
                                 <form action="{% url 'message' %}" method="POST">
                                     {% csrf_token %}
                                     <div class="field">
-                                        <input type="text" name="name" placeholder="Your Name">
+                                        <input type="text" required="1" name="name" placeholder="Your Name">
                                     </div>
                                     <div class="field">
-                                        <input type="email" name="email" placeholder="Email Address">
+                                        <input type="email" required="1" name="email" placeholder="Email Address">
                                     </div>
                                     <div class="field">
-                                        <input type="text" name="subject" placeholder="Subject">
+                                        <input type="text" required="1" name="subject" placeholder="Subject">
                                     </div>
                                     <div class="field">
-                                        <textarea placeholder="Write Message" name="message"></textarea>
+                                        <textarea placeholder="Write Message" required="1" name="message"></textarea>
                                     </div>
                                     <div class="service__contact--form__btn">
                                         <button type="submit" class="theme-btn theme-btn-blue">Get Estimate</button>
@@ -116,14 +118,6 @@
             </div>
         </section>
         <!-- contact inner area end here -->
-
-        <!-- contact map area start here -->
-        <div class="map-area">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d60306.496187635035!2d73.042127!3d19.144647!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c18251fdabcd%3A0x511df7c5b46843a1!2sBURAK%20Metering%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1678619419048!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <!-- contact map area end here -->
-
-
     </main>
 
    {% endblock body %}

@@ -134,7 +134,7 @@
                                 <i class="flaticon-app"></i>
                             </div>
                             <div class="afeature__text">
-                                <h4 class="afeature__text--title"><a href="service-details.html">Booking Online</a></h4>
+                                <h4 class="afeature__text--title">Booking Online</h4>
                                 <p class="p-0">Lorem ipsum dolor sit amets consec of tetur adipisicing elit sed.</p>
                             </div>
                         </div>
@@ -145,7 +145,7 @@
                                 <i class="flaticon-money-bag"></i>
                             </div>
                             <div class="afeature__text">
-                                <h4 class="afeature__text--title"><a href="service-details.html">Discuss Budget</a></h4>
+                                <h4 class="afeature__text--title">Discuss Budget</h4>
                                 <p class="p-0">Laboris nisi ut aliquip exe ea commodo the coniseqs duis aute.</p>
                             </div>
                         </div>
@@ -156,7 +156,7 @@
                                 <i class="flaticon-message"></i>
                             </div>
                             <div class="afeature__text">
-                                <h4 class="afeature__text--title"><a href="service-details.html">Get Confirmation</a></h4>
+                                <h4 class="afeature__text--title">Get Confirmation</h4>
                                 <p class="p-0">Ut enim ade minim veniam quis nostrud exerci tation ullamco laboris.</p>
                             </div>
                         </div>
@@ -167,7 +167,7 @@
                                 <i class="flaticon-happiness"></i>
                             </div>
                             <div class="afeature__text">
-                                <h4 class="afeature__text--title"><a href="service-details.html">Happy Services</a></h4>
+                                <h4 class="afeature__text--title">Happy Services</h4>
                                 <p class="p-0">Suscipit doarce iaculis class nulam rutrume aliquams vulputa.</p>
                             </div>
                         </div>
@@ -176,29 +176,6 @@
             </div>
         </section>
         <!-- feature area end here -->
-
-        <!-- cta area start here -->
-        <section class="cta-area wow fadeInUp" data-wow-delay=".5s">
-            <div class="custom-container">
-                <div class="cta--wrapper">
-                    <div class="cta--single theme-bg">
-                        <i class="flaticon-snowfall cta--icon"></i>
-                        <h3 class="cta--title">Residential Repair Service</h3>
-                        <div class="cta--link">
-                            <a href="{% url 'services' %}" class="cta--link__icon"><i><img src="{% static 'assets/img/icon/cta-icon-1.png' %}" class="img-fluid" alt="img"></i></a>
-                        </div>
-                    </div>
-                    <div class="cta--single black-soft-bg">
-                        <i class="flaticon-business-and-trade cta--icon"></i>
-                        <h3 class="cta--title">Commercial Repair Service</h3>
-                        <div class="cta--link">
-                            <a href="{% url 'services' %}" class="cta--link__icon"><i><img src="{% static 'assets/img/icon/cta-icon-2.png' %}" class="img-fluid" alt="img"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- cta area end here -->
 
         <!-- testimonial area start here -->
         <section class="testimonial-area-3 pt-120 pb-115">
@@ -230,6 +207,8 @@
                         </div>
                         {% endfor %}
                     </div>
+                    <div class="swiper-button-prev slide-prev"><i class="far fa-long-arrow-left"></i></div>
+                    <div class="swiper-button-next slide-next"><i class="far fa-long-arrow-right"></i></div>
                     <!-- If we need pagination -->
                     <div class="swiper-pagination2"></div>
                 </div>

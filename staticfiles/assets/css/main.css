@@ -3048,10 +3048,6 @@ li.header--social a:hover i {
   color: #ff6600;
 }
 
-.cta--single.theme-bg i:hover {
-  color: #2371ff !important;
-}
-
 .cta--title {
   font-size: 36px;
   color: #ffffff;
@@ -3794,9 +3790,6 @@ li.header--social a:hover i {
 }
 
 @media (max-width: 767px) {
-  .icon-bar {
-    display: none;
-  }
   .fact-area-2.pt-130 {
     padding-top: 40px;
     padding-bottom: 35px;
@@ -7584,6 +7577,9 @@ footer {
   padding: 0px 25px;
 }
 @media (max-width: 767px) {
+  .icon-bar {
+    display: none;
+  }
   .afeature__text p {
     padding: 0px;
   }

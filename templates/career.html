@@ -78,33 +78,32 @@
                     {% csrf_token %}
                     <div class="mb-3 wow" data-wow-delay="0.2s">
                         <label for="formGroupExampleInput" class="form-label">Name</label>
-                        <input type="text" name="name" class="form-control" id="formGroupExampleInput"
+                        <input type="text" required="1" name="name" class="form-control" id="formGroupExampleInput"
                             placeholder="Enter your full name">
                     </div>
                     <div class="mb-3 wow" data-wow-delay="0.3s">
                         <label for="formGroupExampleInput" class="form-label">Phone</label>
-                        <input type="tel" name="phone" class="form-control" id="formGroupExampleInput"
+                        <input type="tel" required="1" name="phone" class="form-control" id="formGroupExampleInput"
                             placeholder="Enter your number">
                     </div>
                     <div class="mb-3 wow" data-wow-delay="0.4s">
                         <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                        <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
+                        <input type="email" required="1" name="email" class="form-control" id="exampleFormControlInput1"
                             placeholder="Enter your email">
                     </div>
                     <div class="mb-3 wow" data-wow-delay="0.5s">
                         <label for="formGroupExampleInput" class="form-label">Job Position</label>
-                        <input type="text" name="position" class="form-control" id="formGroupExampleInput"
+                        <input type="text" required="1" name="position" class="form-control" id="formGroupExampleInput"
                             placeholder="Enter job position" value="{{career.position}}">
                     </div>
                     <div class="mb-3 wow" data-wow-delay="0.6s">
                         <label for="exampleFormControlTextarea1" class="form-label">About Yourself</label>
-                        <textarea class="form-control" name="about" id="exampleFormControlTextarea1"
+                        <textarea class="form-control" required="1" name="about" id="exampleFormControlTextarea1"
                             rows="3"></textarea>
                     </div>
-
                     <div class="mb-3 wow fadeInUp" data-wow-delay="0.7s">
                         <label for="formFile" class="form-label">Resume/CV</label>
-                        <input class="form-control" name="resume" type="file" id="formFile">
+                        <input class="form-control" required="1" name="resume" type="file" id="formFile">
                         <br>
                         <input class="btn btn-primary mx-auto d-block px-5 py-2 wow fadeInUp" data-wow-delay="0.8s"
                             type="submit" value="Apply now">

@@ -9,13 +9,13 @@ from django.core.mail import send_mail
 
 @gzip_page
 def index(request):
-    products = Product.objects.all()[:3]
-    services = Service.objects.all()[:4]
+    products = Product.objects.all()
+    services = Service.objects.all()
     info = Information.objects.get(id=1)
     testimonial = Testimonial.objects.all()
     clients = Client.objects.all()
     cars = Carousal.objects.all()
-    return render(request, 'index.html', {'products':products, 'services': services, 'information':info, 'carousals': cars, 'tag': "Salam", 'testimonial': testimonial, 'clients': clients})
+    return render(request, 'index.html', {'products':products, 'services': services, 'prods':products[:3], 'servs': services[:4], 'information':info, 'carousals': cars, 'tag': "Salam", 'testimonial': testimonial, 'clients': clients})
 
 def about(request):
     info = Information.objects.get(id=1)
@@ -37,7 +37,8 @@ def service_details(request, slug):
     service = Service.objects.get(slug=slug)
     details = ServiceDetail.objects.filter(service=service).all()
     info = Information.objects.get(id=1)
-    return render(request, "service-details.html", {"service":service, 'products':products, 'services': services, 'details': details, 'information':info, "related_services": services.reverse()[:3]})
+    related = Service.objects.all().exclude(id=service.id).reverse()[:3]
+    return render(request, "service-details.html", {"service":service, 'products':products, 'services': services, 'details': details, 'information':info, "related_services": related})
 
 def products(request):
     products = Product.objects.all()
@@ -51,7 +52,8 @@ def product_details(request, slug):
     product = Product.objects.get(slug=slug)
     data = ProductDetail.objects.filter(product=product).all()
     info = Information.objects.get(id=1)
-    return render(request, 'product-details.html', {'products':products, 'services': services, 'product':product, "details":data, 'information':info, "related_products": products.reverse()[:3]})
+    related = Product.objects.all().exclude(id=product.id).reverse()[:3]
+    return render(request, 'product-details.html', {'products':products, 'services': services, 'product':product, "details":data, 'information':info, "related_products": related})
 
 
 def jobs(request):

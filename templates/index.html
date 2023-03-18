@@ -245,7 +245,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <ul class="nav custom-service-tab" id="myTab" role="tablist">
-                            {% for service in services %}
+                            {% for service in servs %}
                             <li class="nav-item" role="presentation">
                                 <div {% if forloop.counter == 2 %}class="nav-link active" {% else %}class="nav-link"{% endif %}  id="{{tag}}{{service.id}}-tab" data-bs-toggle="tab" data-bs-target="#{{tag}}{{service.id}}"
                                     role="tab" aria-controls="{{tag}}{{service.id}}" {% if forloop.counter == 1 %} aria-selected="true" {% else %}aria-selected="false"{% endif %} >
@@ -267,7 +267,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="tab-content" id="myTabContent">
-                            {% for service in services %}
+                            {% for service in servs %}
                             <div {% if forloop.counter == 2 %}class="tab-pane fade show active" {% else %}class="tab-pane fade"{% endif %}  id="{{tag}}{{service.id}}" role="tabpanel" aria-labelledby="{{tag}}{{service.id}}-tab">
                                 <div class="aservice__img mb-30">
                                     <img src="{{service.image.url}}" class="img-fluid" alt="{{service.title}}">
@@ -305,8 +305,8 @@
                             <h3 class="acontact__form--title">Free Estimate</h3>
                             <form action="{% url 'message' %}" method="post">
                                 {% csrf_token %}
-                                <input type="text" name="name" placeholder="Your Name">
-                                <input type="tel" name="phone" placeholder="Phone Number">
+                                <input type="text" required="1" name="name" placeholder="Your Name">
+                                <input type="tel" required="1" name="phone" placeholder="Phone Number">
                                 <div class="select__field--arrow">
                                     <select name="subject">
                                         <option value="">Installation & Commissioning</option>
@@ -318,7 +318,7 @@
                                         <option value="">AC Sales</option>
                                     </select>
                                 </div>
-                                <textarea name="message" placeholder="Write Message"></textarea>
+                                <textarea name="message" required="1" placeholder="Write Message"></textarea>
                                 <button type="submit">Free Estimate</button>
                             </form>
                         </div>
@@ -345,7 +345,7 @@
                     </div>
                 </div>
                 <div class="row aportfolio-active">
-                    {% for product in products %}
+                    {% for product in prods %}
                     <div class="col-xl-4 col-md-6 grid-item cat1 cat3">
                         <div class="aportfolio mb-40 wow fadeInUp" data-wow-delay=".3s">
                             <div class="aportfolio__img">
@@ -469,25 +469,26 @@
             </div>
         </section>
         <!-- testimonial area end here -->
-
-        {% if clients %}
-        <!-- brand area end here -->
-        <div class="brand-area grey-bg pt-100 pb-100">
-            <div class="container">
-                <div class="brand-active swiper-container">
-                    <div class="swiper-wrapper">
-                        {% for client in clients %}
-                        <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay=".{{client.id}}s"
-                            data-swiper-autoplay="5000">
-                            <a href="#"><img src="{{client.logo.url}}" class="img-fluid" alt="img"></a>
+        <section>
+            {% if clients %}
+            <!-- brand area end here -->
+            <div class="brand-area grey-bg pt-100 pb-100">
+                <div class="container">
+                    <div class="brand-active swiper-container">
+                        <div class="swiper-wrapper">
+                            {% for client in clients %}
+                            <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay=".{{client.id}}s"
+                                data-swiper-autoplay="5000">
+                                <img src="{{client.logo.url}}" class="img-fluid" alt="img">
+                            </div>
+                            {% endfor %}
                         </div>
-                        {% endfor %}
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- brand area start here -->
-        {% endif %}
+            <!-- brand area start here -->
+            {% endif %}
+        </section>
     </main>
 
 

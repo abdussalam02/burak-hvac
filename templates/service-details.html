@@ -76,9 +76,14 @@
                             <div class="service__sidebar--widget grey-soft-bg mb-30 wow fadeInUp" data-wow-delay=".3s">
                                 <h4 class="service__sidebar--widget__title">Our <span>Services</span></h4>
                                 <ul class="service__sidebar--widget__links">
-                                {% for service in services %}
-                                    <li><a href="{% url 'service_detail' service.slug %}">{{service.title}}<i class="far fa-plus"></i></a></li>
+                                {% for serv in services %}
+                                    {% if serv.id == service.id %}
+                                    <li><a href="{% url 'service_detail' serv.slug %}" style="color: #ff6600">{{serv.title}}<i class="far fa-plus"></i></a></li>
+                                    {% else %}
+                                    <li><a href="{% url 'service_detail' serv.slug %}">{{serv.title}}<i class="far fa-plus"></i></a></li>
+                                    {% endif %}
                                 {% endfor %}
+                                
                                 </ul>
                             </div>
                         </div>
