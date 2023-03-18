@@ -1,7 +1,7 @@
 from django.db import models
 from froala_editor.fields import FroalaField
 from .helpers import generate_slug
-
+from django.utils.html import mark_safe
 # Create your models here.
 class Information(models.Model):
     phone = models.CharField(max_length=15)
@@ -24,15 +24,20 @@ class Information(models.Model):
 class Carousal(models.Model):
     heading = models.CharField(max_length=255)
     sub_heading = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='carousal')
+    image = models.ImageField(upload_to='carousal', help_text='Upload image of size 1900 x 900')
     video = models.URLField(max_length=200)
+
+    def image_tag(self):
+            return mark_safe('<img src="/media/%s" width="350" height="175" style="border-radius: 10px; padding:5px; border : 2px solid grey" />' % (self.image))
+
+    image_tag.short_description = 'Image Preview'
 
     def __str__(self) -> str:
         return str(self.heading)
 
 
 class Service(models.Model):
-    image = models.ImageField(upload_to='service')
+    image = models.ImageField(upload_to='service', help_text='Upload image of size 350 x 300')
     title = models.CharField(max_length=255, null=False)
     slug = models.SlugField(max_length=255, null=True, blank=True)
     description = models.TextField()
@@ -40,6 +45,11 @@ class Service(models.Model):
     def save(self, *args, **kwargs):
         self.slug = generate_slug(self.title)
         super(Service, self).save(*args, **kwargs)
+
+    def image_tag(self):
+            return mark_safe('<img src="/media/%s" width="150" height="125" style="border-radius: 10px; padding:5px; border : 2px solid grey" />' % (self.image))
+
+    image_tag.short_description = 'Image Preview'
 
     def __str__(self) -> str:
         return str(self.title)
@@ -51,17 +61,22 @@ ALIGN_IMAGE = (
 
 class ServiceDetail(models.Model):
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='service')
+    image = models.ImageField(upload_to='service', help_text='Upload image of size 400 x 350')
     heading = models.CharField(max_length=255, null=False)
     description = FroalaField()
     align_image = models.CharField(choices=ALIGN_IMAGE, max_length=10)
+
+    def image_tag(self):
+            return mark_safe('<img src="/media/%s" width="150" height="125" style="border-radius: 10px; padding:5px; border : 2px solid grey" />' % (self.image))
+
+    image_tag.short_description = 'Image Preview'
 
     def __str__(self) -> str:
         return str(self.service.title)
     
 
 class Product(models.Model):
-    image = models.ImageField(upload_to='product')
+    image = models.ImageField(upload_to='product', help_text='Upload image of size 350 x 300')
     title = models.CharField(max_length=255, null=False)
     slug = models.SlugField(max_length=255, null=True, blank=True)
     description = models.TextField()
@@ -70,15 +85,25 @@ class Product(models.Model):
         self.slug = generate_slug(self.title)
         super(Product, self).save(*args, **kwargs)
 
+    def image_tag(self):
+            return mark_safe('<img src="/media/%s" width="150" height="125" style="border-radius: 10px; padding:5px; border : 2px solid grey" />' % (self.image))
+
+    image_tag.short_description = 'Image Preview'
+
     def __str__(self) -> str:
         return str(self.title)
     
 class ProductDetail(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='product')
+    image = models.ImageField(upload_to='product', help_text='Upload image of size 400 x 350')
     heading = models.CharField(max_length=255, null=False)
     description = FroalaField()
     align_image = models.CharField(choices=ALIGN_IMAGE, max_length=10)
+
+    def image_tag(self):
+            return mark_safe('<img src="/media/%s" width="150" height="125" style="border-radius: 10px; padding:5px; border : 2px solid grey" />' % (self.image))
+
+    image_tag.short_description = 'Image Preview'
 
     def __str__(self) -> str:
         return str(self.product.title)
@@ -105,8 +130,6 @@ class Job(models.Model):
     def __str__(self) -> str:
         return str(self.position)
 
-
-
 class Subscription(models.Model):
     email = models.EmailField(unique=True)
     
@@ -123,13 +146,18 @@ PROJECT_CATEGORY = (
 class Project(models.Model):
     name = models.CharField(max_length=255)
     category = models.CharField(choices=PROJECT_CATEGORY, max_length=20)
-    image = models.ImageField(upload_to='projects')
+    image = models.ImageField(upload_to='projects', help_text='Upload image of size 350 x 400')
+
+    def image_tag(self):
+            return mark_safe('<img src="/media/%s" width="130" height="150" style="border-radius: 10px; padding:5px; border : 2px solid grey" />' % (self.image))
+
+    image_tag.short_description = 'Image Preview'
 
     def __str__(self) -> str:
         return str(self.name)
 
 class Blog(models.Model):
-    image = models.ImageField(upload_to="blogs", null=False)
+    image = models.ImageField(upload_to="blogs", null=False, help_text='Upload image of size 350 x 350')
     date = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, null=True, blank=True)
@@ -139,6 +167,11 @@ class Blog(models.Model):
     def save(self, *args, **kwargs):
         self.slug = generate_slug(self.title)
         super(Blog, self).save(*args, **kwargs)
+
+    def image_tag(self):
+            return mark_safe('<img src="/media/%s" width="150" height="125" style="border-radius: 10px; padding:5px; border : 2px solid grey" />' % (self.image))
+
+    image_tag.short_description = 'Image Preview'
 
     def __str__(self) -> str:
         return str(self.title)
@@ -161,7 +194,12 @@ class Testimonial(models.Model):
 
 class Client(models.Model):
     name = models.CharField(max_length=255, null=False)
-    logo = models.ImageField(upload_to='testimonial')
+    logo = models.ImageField(upload_to='clients', help_text='Upload image of size 150 x 40')
+
+    def image_tag(self):
+            return mark_safe('<img src="/media/%s" width="50" height="25" style="border-radius: 10px; padding:5px; border : 2px solid grey" />' % (self.logo))
+
+    image_tag.short_description = 'Image Preview'
 
     def __str__(self) -> str:
         return str(self.name)

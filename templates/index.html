@@ -270,7 +270,7 @@
                             {% for service in services %}
                             <div {% if forloop.counter == 2 %}class="tab-pane fade show active" {% else %}class="tab-pane fade"{% endif %}  id="{{tag}}{{service.id}}" role="tabpanel" aria-labelledby="{{tag}}{{service.id}}-tab">
                                 <div class="aservice__img mb-30">
-                                    <img src="{{service.image.url}}" class="img-fluid" alt="img">
+                                    <img src="{{service.image.url}}" class="img-fluid" alt="{{service.title}}">
                                     <div class="aservice__img--text">
                                         <p>"{{service.description|truncatechars:150}}"</p>
                                         <a href="{% url 'service_detail' service.slug %}" class="aservice__img--text__link">{{service.title}}
@@ -349,7 +349,7 @@
                     <div class="col-xl-4 col-md-6 grid-item cat1 cat3">
                         <div class="aportfolio mb-40 wow fadeInUp" data-wow-delay=".3s">
                             <div class="aportfolio__img">
-                                <img src="{{product.image.url}}" class="img-fluid ind-thumbnail" alt="img">
+                                <img src="{{product.image.url}}" class="img-fluid ind-thumbnail" alt="{{product.title}}">
                                 <div class="aportfolio__img--icon">
                                     <a class="venobox" data-gall="gallery01"
                                         href="{{product.image.url}}">
@@ -444,7 +444,7 @@
                                         <p class="text-white mb-40">"{{test.comment}}" </p>
                                         <div class="atestimonial__client d-flex align-items-center">
                                             <div class="atestimonial__client--img">
-                                                <img src="{{test.photo.url}}" class="img-fluid" alt="img">
+                                                <img src="{{test.photo.url}}" class="img-fluid" alt="{{test.name}}">
                                             </div>
                                             <div class="atestimonial__client--text">
                                                 <h4 class="atestimonial__client--text__title">{{test.name}}</h4>

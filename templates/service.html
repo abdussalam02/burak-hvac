@@ -82,7 +82,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="ablog mb-105 wow fadeInUp"  data-wow-delay=".3s">
                             <div class="ablog__img">
-                                <img src="{{service.image.url}}" class="img-fluid thumbnail" alt="img">
+                                <img src="{{service.image.url}}" class="img-fluid thumbnail" alt="{{service.title}}">
                             </div>
                             <div class="ablog__text ablog__text--service">
                                 <h4 class="ablog__text--title"><a href="{% url 'service_detail' service.slug %}">{{service.title}}</a></h4>

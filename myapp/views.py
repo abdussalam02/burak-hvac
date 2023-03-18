@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
+from django.views.decorators.gzip import gzip_page
 from .models import *
 import smtplib
 
 EMAIL = "engineerak569@gmail.com"
 PASSWORD = "jueianotflghxrwv"
 
+@gzip_page
 def index(request):
     products = Product.objects.all()[:3]
     services = Service.objects.all()[:4]

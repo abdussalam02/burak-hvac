@@ -4,12 +4,12 @@
 //preloader activation
 var win =  $(window);
 win.on('load', function () {
-    $('#preloader').delay(350).fadeOut('slow');
-    $('body').delay(350).css({
+    $('#preloader').delay(200).fadeOut('slow');
+    $('body').delay(200).css({
         'overflow': 'visible'
     });
 })
-    
+
 // meanmenu
 $('#mobile-menu').meanmenu({
 	meanMenuContainer: '.mobile-menu',

@@ -8,6 +8,8 @@ class ServiceDetailAdmin(admin.StackedInline):
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
     inlines = [ServiceDetailAdmin]
+    fields = ['title', 'image', 'image_tag', 'slug', 'description']
+    readonly_fields = ['image_tag']
     class Meta:
        model = Service
 
@@ -18,6 +20,8 @@ class ProductDetailAdmin(admin.StackedInline):
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductDetailAdmin]
+    fields = ['title', 'image', 'image_tag', 'slug', 'description']
+    readonly_fields = ['image_tag']
     class Meta:
        model = Product
 
@@ -28,14 +32,34 @@ class BlogDetailAdmin(admin.StackedInline):
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
     inlines = [BlogDetailAdmin]
+    fields = ['title', 'image', 'image_tag', 'slug', 'description', 'posted_by']
+    readonly_fields = ['image_tag']
     class Meta:
        model = Blog
+
+@admin.register(Carousal)
+class CarousalAdmin(admin.ModelAdmin):
+    fields = ['heading', 'sub_heading', 'image', 'image_tag', 'video']
+    readonly_fields = ['image_tag']
+    class Meta:
+       model = Carousal
+
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    fields = ['name', 'category', 'image', 'image_tag']
+    readonly_fields = ['image_tag']
+    class Meta:
+       model = Project
+
+@admin.register(Client)
+class ClientAdmin(admin.ModelAdmin):
+    fields = ['name', 'logo', 'image_tag']
+    readonly_fields = ['image_tag']
+    class Meta:
+       model = Client
 
 admin.site.register(Career)
 admin.site.register(Job)
 admin.site.register(Subscription)
 admin.site.register(Information)
-admin.site.register(Carousal)
-admin.site.register(Project)
 admin.site.register(Testimonial)
-admin.site.register(Client)

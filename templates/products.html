@@ -84,7 +84,7 @@
                         <div class="ablog mb-105 wow fadeInUp"  data-wow-delay=".3s">
                             <div class="ablog__text ablog__text--service">
                                 <div>
-                                    <img src="{{product.image.url}}"  class="img-fluid thumbnail" alt="img">
+                                    <img src="{{product.image.url}}"  class="img-fluid thumbnail" alt="{{product.title}}">
                                 </div>
                                 <h4 class="ablog__text--title"><a href="{% url 'product_detail' product.slug %}">{{product.title}}</a></h4>
                                 <p>{{ product.description|truncatechars:200 }}</p>

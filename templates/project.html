@@ -95,7 +95,7 @@
                     <div class="col-xl-4 col-md-6 grid-item {{project.category}}">
                         <div class="aportfolio mb-40 wow fadeInUp"  data-wow-delay=".3s">
                             <div class="aportfolio__img">
-                                <img src="{{project.image.url}}" class="img-fluid project" alt="img">
+                                <img src="{{project.image.url}}" class="img-fluid" alt="{{project.name}}">
                                 <div class="aportfolio__img--icon">
                                     <a class="venobox" data-gall="gallery01" href="{{project.image.url}}">
                                         <i class="fas fa-search"></i>
@@ -104,11 +104,11 @@
                             </div>
                             <div class="aportfolio__text aportfolio__inner--text z-index">
                                 <span>{{project.category}}</span>
-                                <h4 class="aportfolio__text--title"><a href="project-details.html">{{project.name}}</a></h4>
+                                <h4 class="aportfolio__text--title">{{project.name}}</h4>
                             </div>
                         </div>
                     </div>
-                    {% endfor %}      
+                    {% endfor %}
                 </div>
             </div>
         </section>
