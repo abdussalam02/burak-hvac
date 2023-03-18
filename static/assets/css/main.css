@@ -7581,6 +7581,9 @@ footer {
   padding: 0px 25px;
 }
 @media (max-width: 767px) {
+  .icon-bar {
+    display: none;
+  }
   .afeature__text p {
     padding: 0px;
   }
