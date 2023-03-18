@@ -62,7 +62,7 @@ ALIGN_IMAGE = (
 class ServiceDetail(models.Model):
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='service', help_text='Upload image of size 400 x 350')
-    heading = models.CharField(max_length=255, null=False)
+    heading = models.CharField(max_length=255, null=True)
     description = FroalaField()
     align_image = models.CharField(choices=ALIGN_IMAGE, max_length=10)
 
@@ -96,7 +96,7 @@ class Product(models.Model):
 class ProductDetail(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='product', help_text='Upload image of size 400 x 350')
-    heading = models.CharField(max_length=255, null=False)
+    heading = models.CharField(max_length=255, null=True)
     description = FroalaField()
     align_image = models.CharField(choices=ALIGN_IMAGE, max_length=10)
 

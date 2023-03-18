@@ -3,10 +3,9 @@ from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from django.views.decorators.gzip import gzip_page
 from .models import *
-import smtplib
+from django.conf import settings
+from django.core.mail import send_mail
 
-EMAIL = "engineerak569@gmail.com"
-PASSWORD = "jueianotflghxrwv"
 
 @gzip_page
 def index(request):
@@ -14,22 +13,23 @@ def index(request):
     services = Service.objects.all()[:4]
     info = Information.objects.get(id=1)
     testimonial = Testimonial.objects.all()
+    clients = Client.objects.all()
     cars = Carousal.objects.all()
-    return render(request, 'index.html', {'products':products, 'services': services, 'information':info, 'carousals': cars, 'tag': "Salam", 'testimonial': testimonial})
+    return render(request, 'index.html', {'products':products, 'services': services, 'information':info, 'carousals': cars, 'tag': "Salam", 'testimonial': testimonial, 'clients': clients})
 
 def about(request):
     info = Information.objects.get(id=1)
     products = Product.objects.all()
     services = Service.objects.all()
     testimonial = Testimonial.objects.all()
-    return render(request, 'about.html', {'information':info, 'products':products, 'services': services, 'testimonial':testimonial})
+    clients = Client.objects.all()
+    return render(request, 'about.html', {'information':info, 'products':products, 'services': services, 'testimonial':testimonial, 'clients': clients})
 
 def services(request):
     products = Product.objects.all()
     services = Service.objects.all()
     info = Information.objects.get(id=1)
-    testimonial = Testimonial.objects.all()
-    return render(request, 'service.html', {'products':products, 'services': services, 'information':info, 'testimonial':testimonial})
+    return render(request, 'service.html', {'products':products, 'services': services, 'information':info})
 
 def service_details(request, slug):
     products = Product.objects.all()
@@ -92,17 +92,23 @@ def message(request):
     subject = request.POST.get('subject')
     message = request.POST.get('message')
     if phone !=  None:
-        with smtplib.SMTP('smtp.gmail.com') as connection:
-            connection.starttls()
-            connection.login(user=EMAIL, password = PASSWORD)
-            connection.sendmail(from_addr=EMAIL, to_addrs=['shaikharshi69@gmail.com', 'iamaladdin02@gmail.com'], msg = f'subject : {subject}\n\n Name: {name}\n Phone:{phone}\n Message:{message} ')
+        text = f'''You have received a message from Burak HVAC Pvt. Ltd. website.
+        Name: {name}
+        Phone: {phone}
+        Message: {message}'''
+        email_from = settings.EMAIL_HOST_USER
+        recipient_list = ['shaikharshi69@gmail.com', 'iamaladdin02@gmail.com']
+        send_mail(subject=subject, message=text, from_email=email_from, recipient_list=recipient_list )
         # messages.success(request, 'Email Sent Successfully')
         return redirect('index')
     else:
-        with smtplib.SMTP('smtp.gmail.com') as connection:
-            connection.starttls()
-            connection.login(user=EMAIL, password = PASSWORD)
-            connection.sendmail(from_addr=EMAIL, to_addrs=['shaikharshi69@gmail.com', 'iamaladdin02@gmail.com'], msg = f'subject : {subject}\n\n Name: {name}\n Email:{email}\n Message:{message} ')
+        text = f'''You have received a message from Burak HVAC Pvt. Ltd. website.
+        Name: {name}
+        Email: {email}
+        Message: {message}'''
+        email_from = settings.EMAIL_HOST_USER
+        recipient_list = ['shaikharshi69@gmail.com', 'iamaladdin02@gmail.com']
+        send_mail(subject=subject, message=text, from_email=email_from, recipient_list=recipient_list )
         # messages.success(request, 'Email Sent Successfully')
         return redirect('contact')
 
@@ -123,10 +129,12 @@ def subscribe(request):
 
         if not Subscription.objects.filter(email=email).exists():
             Subscription(email=email).save()
-            with smtplib.SMTP('smtp.gmail.com') as connection:
-                connection.starttls()
-                connection.login(user=EMAIL, password = PASSWORD)
-                connection.sendmail(from_addr=EMAIL, to_addrs=email, msg = f'subject : Thank you for subscribing to our website.\n\nYour subscription has been confirmed! You are now part of our exclusive group of subscribers who will be the first to hear about our new products, services and promotions.')
+            subject = 'Thank you for subscribing to our website.'
+            text = f'''Your subscription has been confirmed!
+              You are now part of our exclusive group of subscribers who will be the first to hear about our new products, services and promotions.'''
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = [email]
+            send_mail(subject=subject, message=text, from_email=email_from, recipient_list=recipient_list )
             # messages.success(request, 'Email Sent Successfully')
     return redirect('index')
 
@@ -152,10 +160,18 @@ def careers(request, id):
         resume = request.FILES.get('resume')
         data = Career(name=name, phone = phone, email=email, position=position, about=about, resume=resume )
         data.save()
-        with smtplib.SMTP('smtp.gmail.com') as connection:
-            connection.starttls()
-            connection.login(user=EMAIL, password = PASSWORD)
-            connection.sendmail(from_addr=EMAIL, to_addrs=['iamaladdin02@gmail.com', 'shaikharshi69@gmail.com'], msg = f'subject : you have recieved a resume.\n\n Name of the candidate is {name} applying for the position of {position}. Check out his resume on https://127.0.0.1:8000/admin/career')
+        subject = 'You have received a resume from Burak HVAC Pvt. Ltd. website.'
+        text = f'''
+        Name of the candidate is {name} applying for the position of {position}. Check out his resume on https://web-production-d702.up.railway.app/admin/career
+        Details of the candidate:
+        Name: {name}
+        Phone: {phone}
+        Email: {email}
+        Position: {position}
+        Biodata: {about}'''
+        email_from = settings.EMAIL_HOST_USER
+        recipient_list = ['shaikharshi69@gmail.com', 'iamaladdin02@gmail.com']
+        send_mail(subject=subject, message=text, from_email=email_from, recipient_list=recipient_list )
         return redirect('career', id=id)
     return render(request, 'career.html', {"career": car, 'information':info, 'products':products, 'services': services})
 

@@ -27,15 +27,13 @@
 </head>
 
 <body>
-    
-    <!-- preloader -->
+    <!-- preloader
     <div id="preloader">
         <div class="preloader">
             <span></span>
             <span></span>
         </div>
-    </div>
-    <!-- preloader end -->
+    </div> preloader end --> 
 
     <!-- back to top start -->
     <div class="progress-wrap">
@@ -104,8 +102,8 @@
                                     </li>
                                     <li><a href="{% url 'projects' %}">Portfolio</a></li>
                                     <li><a href="{% url 'blogs' %}">Blog</a></li>
-                                    <li><a href="{% url 'contact' %}">CONTACT</a></li>
                                     <li><a href="{% url 'jobs' %}">Career</a></li>
+                                    <li><a href="{% url 'contact' %}">CONTACT</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -143,7 +141,7 @@
 
 {% endblock body %}
     <!-- footer area start here -->
-    <footer data-background="{% static 'assets/img/footer/footer-bg.jpg' %} ">
+    <footer data-background="{% static 'assets/img/footer/footer-bg.jpg' %}">
         <section class="footer-area pt-115 pb-90">
             <div class="container">
                 <div class="row">
@@ -225,6 +223,10 @@
     <script src="{% static 'assets/js/ajax-form.js' %}"></script>
     <script src="{% static 'assets/js/wow.min.js' %}"></script>
     <script src="{% static 'assets/js/main.js' %}"></script>
+    <script>
+        const froalaTag = document.querySelectorAll('[data-f-id="pbf"]');
+        froalaTag.forEach(e => e.remove())
+    </script>
 </body>
 
 </html>
