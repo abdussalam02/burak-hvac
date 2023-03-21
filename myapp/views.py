@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
-from django.views.decorators.gzip import gzip_page
 from .models import *
 from django.conf import settings
 from django.core.mail import send_mail
+from compression_middleware.decorators import compress_page
 
-
-@gzip_page
+@compress_page
 def index(request):
     products = Product.objects.all()
     services = Service.objects.all()
@@ -17,6 +16,7 @@ def index(request):
     cars = Carousal.objects.all()
     return render(request, 'index.html', {'products':products, 'services': services, 'prods':products[:3], 'servs': services[:4], 'information':info, 'carousals': cars, 'tag': "Salam", 'testimonial': testimonial, 'clients': clients})
 
+@compress_page
 def about(request):
     info = Information.objects.get(id=1)
     products = Product.objects.all()
@@ -25,12 +25,14 @@ def about(request):
     clients = Client.objects.all()
     return render(request, 'about.html', {'information':info, 'products':products, 'services': services, 'testimonial':testimonial, 'clients': clients})
 
+@compress_page
 def services(request):
     products = Product.objects.all()
     services = Service.objects.all()
     info = Information.objects.get(id=1)
     return render(request, 'service.html', {'products':products, 'services': services, 'information':info})
 
+@compress_page
 def service_details(request, slug):
     products = Product.objects.all()
     services = Service.objects.all()
@@ -114,12 +116,12 @@ def message(request):
         # messages.success(request, 'Email Sent Successfully')
         return redirect('contact')
 
-def projects(request):    
+def portfolio(request):
     products = Product.objects.all()
     services = Service.objects.all()
     info = Information.objects.get(id=1)
-    data = Project.objects.all()
-    return render(request, 'project.html' ,{"projects":data, 'information':info, 'products':products, 'services': services})
+    data = Portfolio.objects.all()
+    return render(request, 'portfolio.html' ,{"projects":data, 'information':info, 'products':products, 'services': services})
 
 def subscribe(request):
     if request.method == 'POST':

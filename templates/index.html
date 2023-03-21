@@ -76,16 +76,16 @@
                         <i class="flaticon-snowfall cta--icon"></i>
                         <h3 class="cta--title">Residential Repair Service</h3>
                         <div class="cta--link">
-                            <a href="{% url "services" %}" class="cta--link__icon"><i><img
-                                        src="{% static 'assets/img/icon/cta-icon-1.png' %}" class="img-fluid" alt="img"></i></a>
+                            <a href="{% url "services" %}" class="cta--link__icon"><i>
+                                <img data-src="{% static 'img/icon/cta-icon-1.png' %}" class="lazy img-fluid" alt="img"></i></a>
                         </div>
                     </div>
                     <div class="cta--single black-soft-bg">
                         <i class="flaticon-business-and-trade cta--icon"></i>
                         <h3 class="cta--title">Commercial Repair Service</h3>
                         <div class="cta--link">
-                            <a href="{% url "services" %}" class="cta--link__icon"><i><img
-                                        src="{% static 'assets/img/icon/cta-icon-1.png' %}" class="img-fluid" alt="img"></i></a>
+                            <a href="{% url "services" %}" class="cta--link__icon"><i>
+                                <img data-src="{% static 'img/icon/cta-icon-1.png' %}" class="lazy img-fluid" alt="img"></i></a>
                         </div>
                     </div>
                 </div>
@@ -102,12 +102,12 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="aabout-img img-lg mb-30 wow fadeInUp" data-wow-delay=".3s">
-                                        <img src="{% static 'assets/img/about/about-img-1.jpg' %}" class="img-fluid" alt="img">
+                                        <img data-src="{% static 'img/about/about-img-1.jpg' %}" class="lazy img-fluid" alt="img">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="aabout-img mb-30 wow fadeInUp" data-wow-delay=".5s">
-                                        <img src="{% static 'assets/img/about/about-img-2.jpg' %}" class="img-fluid" alt="img">
+                                        <img data-src="{% static 'img/about/about-img-2.jpg' %}" class="lazy img-fluid" alt="img">
                                     </div>
                                     <div class="aabout-img_text mb-30 black-soft-bg wow fadeInUp" data-wow-delay=".7s">
                                         <h2 class="aabout-img_text-title">{{information.projects}}+ <span>Project Done</span></h2>
@@ -119,24 +119,24 @@
                     <div class="col-lg-6 col-md-10">
                         <div class="aabout-text mr-150 mb-30">
                             <div class="section-title-wrapper mb-30 wow fadeInUp" data-wow-delay=".3s">
-                                <h6 class="subtitle mb-20"><img src="{% static 'assets/img/icon/subtitle-icon.png' %}"
-                                        class="img-fluid" alt="img"> About company</h6>
+                                <h6 class="subtitle mb-20"><img data-src="{% static 'img/icon/subtitle-icon.png' %}"
+                                        class="lazy img-fluid" alt="img"> About company</h6>
                                 <h2 class="section-title">We are most popular<br> Service & Product base company</h2>
                             </div>
-                            <p class="mb-40 wow fadeInUp" data-wow-delay="0.6s">"Our mission is to provide efficient and
+                            <p class="mb-40 wow fadeInUp" data-wow-delay="0.5s">"Our mission is to provide efficient and
                                 effective AC services and product at fair prices, with a focus on customer satisfaction
                                 and long-term relationships."</p>
-                            <div class="aabout-qoute mb-50 wow fadeInUp" data-wow-delay="0.9s">
+                            <div class="aabout-qoute mb-50 wow fadeInUp" data-wow-delay="0.6s">
                                 <i class="fas fa-quote-right float-bob-x"></i>
                                 <h4 class="z-index">Don’t feel heat when there is best air <br>conditioning seat </h4>
                             </div>
-                            <div class="aabout--profile__wrapper wow fadeInUp" data-wow-delay="1.2s">
+                            <div class="aabout--profile__wrapper wow fadeInUp" data-wow-delay=".7s">
                                 <div class="aabout--btn">
                                     <a href="{% url 'about' %}" class="theme-btn">Read More</a>
                                 </div>
                                 <div class="aabout--profile">
                                     <div class="aabout--profile__img">
-                                        <img src="{% static 'assets/img/icon/saeed.jpg' %}" class="img-fluid" alt="img">
+                                        <img data-src="{% static 'img/icon/saeed.jpg' %}" class="lazy img-fluid" alt="img">
                                     </div>
                                     <div class="aabout--profile__text">
                                         <h4>Saeed Lanjekar</h4>
@@ -158,7 +158,7 @@
                     <div class="col-xl-3 col-lg-3 col-sm-6">
                         <div class="afact mb-30 wow fadeInUp" data-wow-delay=".3s">
                             <div class="afact--img mb-20">
-                                <img src="{% static 'assets/img/icon/fact-icon-1.png' %}" class="img-fluid z-index" alt="img">
+                                <img data-src="{% static 'img/icon/fact-icon-1.png' %}" class="lazy img-fluid z-index" alt="img">
                             </div>
                             <div class="afact--text">
                                 <div class="afact--text__title">
@@ -174,7 +174,7 @@
                     <div class="col-xl-3 col-lg-3 col-sm-6">
                         <div class="afact mb-30 wow fadeInUp" data-wow-delay=".6s">
                             <div class="afact--img mb-20">
-                                <img src="{% static 'assets/img/icon/fact-icon-2.png' %}" class="img-fluid z-index" alt="img">
+                                <img data-src="{% static 'img/icon/fact-icon-2.png' %}" class="lazy img-fluid z-index" alt="img">
                             </div>
                             <div class="afact--text">
                                 <div class="afact--text__title">
@@ -190,7 +190,7 @@
                     <div class="col-xl-3 col-lg-3 col-sm-6">
                         <div class="afact mb-30 wow fadeInUp" data-wow-delay=".9s">
                             <div class="afact--img mb-20">
-                                <img src="{% static 'assets/img/icon/fact-icon-3.png' %}" class="img-fluid z-index" alt="img">
+                                <img data-src="{% static 'img/icon/fact-icon-3.png' %}" class="lazy img-fluid z-index" alt="img">
                             </div>
                             <div class="afact--text">
                                 <div class="afact--text__title">
@@ -206,7 +206,7 @@
                     <div class="col-xl-3 col-lg-3 col-sm-6">
                         <div class="afact mb-30 wow fadeInUp" data-wow-delay="1.2s">
                             <div class="afact--img mb-20">
-                                <img src="{% static 'assets/img/icon/fact-icon-4.png' %}" class="img-fluid z-index" alt="img">
+                                <img data-src="{% static 'img/icon/fact-icon-4.png' %}" class="lazy img-fluid z-index" alt="img">
                             </div>
                             <div class="afact--text">
                                 <div class="afact--text__title">
@@ -225,12 +225,12 @@
         <!-- fact area end here -->
 
         <!-- service area start here -->
-        <section class="service-area pt-120 pb-90" data-background="{% static 'assets/img/service/service-bg.jpg' %}">
+        <section class="service-area pt-120 pb-90" data-background="{% static 'img/service/service-bg.jpg' %}">
             <div class="container">
                 <div class="row align-items-end mb-70">
                     <div class="col-md-8">
                         <div class="section-title-wrapper wow fadeInUp" data-wow-delay=".2s">
-                            <h6 class="subtitle mb-20"><img src="{% static 'assets/img/icon/subtitle-icon.png' %}" class="img-fluid"
+                            <h6 class="subtitle mb-20"><img data-src="{% static 'img/icon/subtitle-icon.png' %}" class="lazy img-fluid"
                                     alt="img"> Featured Services</h6>
                             <h2 class="section-title">Popular repair service</h2>
                         </div>
@@ -270,11 +270,11 @@
                             {% for service in servs %}
                             <div {% if forloop.counter == 2 %}class="tab-pane fade show active" {% else %}class="tab-pane fade"{% endif %}  id="{{tag}}{{service.id}}" role="tabpanel" aria-labelledby="{{tag}}{{service.id}}-tab">
                                 <div class="aservice__img mb-30">
-                                    <img src="{{service.image.url}}" class="img-fluid" alt="{{service.title}}">
+                                    <img data-src="{{service.image.url}}" class="lazy img-fluid" alt="{{service.title}}">
                                     <div class="aservice__img--text">
                                         <p>"{{service.description|truncatechars:150}}"</p>
                                         <a href="{% url 'service_detail' service.slug %}" class="aservice__img--text__link">{{service.title}}
-                                            <i><img src="{% static 'assets/img/icon/contact-arrow.png' %}" class="img-fluid"
+                                            <i><img data-src="{% static 'img/icon/contact-arrow.png' %}" class="lazy img-fluid"
                                                     alt="img"></i></a>
                                     </div>
                                 </div>
@@ -293,7 +293,7 @@
                 <div class="row align-items-end">
                     <div class="col-lg-7">
                         <div class="acontact__img wow fadeInUp" data-wow-delay=".3s">
-                            <img src="{% static 'assets/img/contact/contact-img-1.png' %}" class="img-fluid" alt="img">
+                            <img data-src="{% static 'img/contact/contact-img-1.png' %}" class="lazy img-fluid" alt="img">
                             <div class="acontact__img--text wow fadeInUp" data-wow-delay=".5s">
                                 <h1 class="acontact__img--text__backtitle">2</h1>
                                 <h2 class="z-index"><span>{{information.experience}}+Year</span> Working Experience</h2>
@@ -333,7 +333,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-8">
                         <div class="section-title-wrapper mb-70 wow fadeInUp" data-wow-delay=".3s">
-                            <h6 class="subtitle mb-20"><img src="{% static 'assets/img/icon/subtitle-icon.png' %}" class="img-fluid"
+                            <h6 class="subtitle mb-20"><img data-src="{% static 'img/icon/subtitle-icon.png' %}" class="lazy img-fluid"
                                     alt="img">Featured Products</h6>
                             <h2 class="section-title">Our Quality Products</h2>
                         </div>
@@ -347,7 +347,7 @@
                 <div class="row aportfolio-active">
                     {% for product in prods %}
                     <div class="col-xl-4 col-md-6 grid-item cat1 cat3">
-                        <div class="aportfolio mb-40 wow fadeInUp" data-wow-delay=".3s">
+                        <div class="aportfolio mb-40 wow fadeInUp" data-wow-delay=".{{product.id}}s">
                             <div class="aportfolio__img">
                                 <img src="{{product.image.url}}" class="img-fluid ind-thumbnail" alt="{{product.title}}">
                                 <div class="aportfolio__img--icon">
@@ -372,24 +372,24 @@
         <!-- choose us area start here -->
         <section class="position-relative">
             <div class="why__choose--bg d-lg-none">
-                <img src="{% static 'assets/img/choose/choose-bg.jpg' %}" class="img-fluid z-index" alt="img">
+                <img data-src="{% static 'img/choose/choose-bg.jpg' %}" class="lazy img-fluid z-index" alt="img">
             </div>
-            <div class="choose-area" data-background="{% static 'assets/img/choose/choose-bg.jpg' %}">
-                <div class="choose-bg-right" data-background="{% static 'assets/img/choose/choose-bg2.jpg' %}"></div>
+            <div class="choose-area" data-background="{% static 'img/choose/choose-bg.jpg' %}">
+                <div class="choose-bg-right" data-background="{% static 'img/choose/choose-bg2.jpg' %}"></div>
                 <div class="choose--content__wrapper z-index">
                     <div class="container">
                         <div class="row justify-content-end">
                             <div class="col-lg-7">
                                 <div class="choose--content">
                                     <div class="section-title-wrapper mb-35 wow fadeInUp" data-wow-delay=".3s">
-                                        <h6 class="subtitle mb-20"><img src="{% static 'assets/img/icon/subtitle-icon.png' %}"
-                                                class="img-fluid" alt="img"> Why Choose Us</h6>
+                                        <h6 class="subtitle mb-20"><img data-src="{% static 'img/icon/subtitle-icon.png' %}"
+                                                class="lazy img-fluid" alt="img"> Why Choose Us</h6>
                                         <h2 class="section-title">Empower lifes forever <br> better living</h2>
                                     </div>
-                                    <p class="mb-40 wow fadeInUp" data-wow-delay=".6s">Customer service: The service
+                                    <p class="mb-40 wow fadeInUp" data-wow-delay=".4s">Customer service: The service
                                         should provide excellent customer service to ensure that you are satisfied with
                                         their work and can rely on them for any future needs.</p>
-                                    <div class="achoose mb-40 wow fadeInUp" data-wow-delay=".9s">
+                                    <div class="achoose mb-40 wow fadeInUp" data-wow-delay=".5s">
                                         <div class="achoose__icon theme-bg-blue">
                                             <i class="flaticon-technician"></i>
                                         </div>
@@ -400,7 +400,7 @@
                                                 system is repaired correctly the first time."</p>
                                         </div>
                                     </div>
-                                    <div class="achoose mb-40 wow fadeInUp" data-wow-delay="1.2s">
+                                    <div class="achoose mb-40 wow fadeInUp" data-wow-delay=".6s">
                                         <div class="achoose__icon theme-bg">
                                             <i class="flaticon-satisfaction"></i>
                                         </div>
@@ -422,19 +422,19 @@
         <br><br><br><br>
 
         <!-- testimonial area start here -->
-        <section class="testimonial-area" data-background="{% static 'assets/img/testimonial/testimonial-bg.jpg' %}">
+        <section class="testimonial-area" data-background="{% static 'img/testimonial/testimonial-bg.jpg' %}">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <div class="atestimonial__img wow fadeInUp" data-wow-delay=".5s">
-                            <img src="{% static 'assets/img/testimonial/testimonial-img-1.png' %}" alt="img">
+                        <div class="atestimonial__img wow fadeInUp" data-wow-delay=".4s">
+                            <img data-src="{% static 'img/testimonial/testimonial-img-1.png' %}" class="lazy" alt="img">
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="atestimonial__text wow fadeInUp" data-wow-delay="1s">
+                        <div class="atestimonial__text wow fadeInUp" data-wow-delay=".8s">
                             <div class="section-title-wrapper mb-20">
-                                <h6 class="subtitle mb-20"><img src="{% static 'assets/img/icon/subtitle-icon.png' %}"
-                                        class="img-fluid" alt="img"> Testimonials</h6>
+                                <h6 class="subtitle mb-20"><img data-src="{% static 'img/icon/subtitle-icon.png' %}"
+                                        class="lazy img-fluid" alt="img"> Testimonials</h6>
                                 <h2 class="section-title text-white">Happy customer says <br> about service</h2>
                             </div>
                             <div class="atestimonial-active swiper-container">
@@ -444,7 +444,7 @@
                                         <p class="text-white mb-40">"{{test.comment}}" </p>
                                         <div class="atestimonial__client d-flex align-items-center">
                                             <div class="atestimonial__client--img">
-                                                <img src="{{test.photo.url}}" class="img-fluid" alt="{{test.name}}">
+                                                <img data-src="{{test.photo.url}}" class="lazy img-fluid" alt="{{test.name}}">
                                             </div>
                                             <div class="atestimonial__client--text">
                                                 <h4 class="atestimonial__client--text__title">{{test.name}}</h4>
@@ -479,7 +479,7 @@
                             {% for client in clients %}
                             <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay=".{{client.id}}s"
                                 data-swiper-autoplay="5000">
-                                <img src="{{client.logo.url}}" class="img-fluid" alt="img">
+                                <img data-src="{{client.logo.url}}" alt="{{client.name}}" class="lazy img-fluid" alt="img">
                             </div>
                             {% endfor %}
                         </div>

@@ -40,7 +40,7 @@
 
         </div>
         <!-- page title area start here -->
-        <div class="page-title-area pt-210 pb-180" data-background="assets/img/bg/page-banner.jpg">
+        <div class="page-title-area pt-210 pb-180" data-background="{% static 'img/faq.jpg' %}">
             <div class="container">
                 <div class="page-title-icon">
                     <i class="flaticon-air-conditioner hero__icon hero__icon1"></i>
@@ -66,19 +66,17 @@
             </div>
         </div>
         <!-- page title area end here -->
-
-        <!-- faq area start here -->
         <section class="faq-area-3 pt-120 pb-90">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="afaq__banner mb-50 wow fadeInUp" data-wow-delay=".3s">
-                            <img src="{% static 'assets/img/faq/faq-img-4.png' %}" class="img-fluid" alt="img">
+                            <img src="assets/img/faq/faq-img-4.png" class="img-fluid" alt="img">
                             <div class="afaq__banner--text text-center">
-                                <h2 class="afaq__banner--text__title">Need Free Consultancy</h2>
-                                <p>Class menaeos hymenaeos erate vulputate convallis felises in curabitur </p>
+                                <h2 class="afaq__banner--text__title">Need Free <br>Consultancy</h2>
+                                <p>Feel Free to Contact us </p>
                                 <div class="afaq__banner--text__btn">
-                                    <a href="{% url 'contact' %}" class="theme-btn">Send Message</a>
+                                    <a href="contact.html" class="theme-btn">Send Message</a>
                                 </div>
                             </div>
                         </div>
@@ -86,104 +84,114 @@
                     <div class="col-lg-8">
                         <div class="afaq__text afaq__text--3 mb-30 mr-165 wow fadeInUp" data-wow-delay=".6s">
                             <div class="section-title-wrapper mb-50">
-                                <h6 class="subtitle mb-20"><img src="{% static 'assets/img/icon/subtitle-icon.png' %}" class="img-fluid" alt="img"> Common Question</h6>
+                                <h6 class="subtitle mb-20"><img src="assets/img/icon/subtitle-icon.png"
+                                        class="img-fluid" alt="img"> Common Question</h6>
                                 <h2 class="section-title">Solutions for an every <br>repair problem</h2>
                             </div>
                             <div class="accordion" id="accordionExample">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Can you remove anything from my credit report
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                            What is an HVAC system?
                                         </button>
                                     </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            Pede nullam nullas it ultricies corne mone molestie erate montes adipiscing leo est magnis imperdiet fermentum auctor hymenae laoreet tempor vestibulum dictumst
+                                            An HVAC system is a heating and cooling system that provides thermal comfort and indoor air quality for a building or home. It includes components such as a furnace, air conditioner, ductwork, thermostat, and air filter.
                                         </div>
                                     </div>
                                 </div>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Why do I need reports from all 3 credit bureaus
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                            How often should I change my HVAC air filter?
                                         </button>
                                     </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div id="collapseTwo" class="accordion-collapse collapse"
+                                        aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            Pede nullam nullas it ultricies corne mone molestie erate montes adipiscing leo est magnis imperdiet fermentum auctor hymenae laoreet tempor vestibulum dictumst
+                                            It's recommended to change your air filter every 1-3 months, depending on usage and the type of filter. A dirty air filter can reduce airflow and decrease the efficiency of your HVAC system.
                                         </div>
                                     </div>
                                 </div>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            When can I expect to see my credit score go up
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                            aria-expanded="false" aria-controls="collapseThree">
+                                            What temperature should I set my thermostat to?
                                         </button>
                                     </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div id="collapseThree" class="accordion-collapse collapse"
+                                        aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            Pede nullam nullas it ultricies corne mone molestie erate montes adipiscing leo est magnis imperdiet fermentum auctor hymenae laoreet tempor vestibulum dictumst
+                                            The ideal temperature setting for your thermostat depends on personal preference, the time of year, and the climate in your area. However, a general rule of thumb is to set your thermostat to 68-72 degrees Fahrenheit during the winter and 72-78 degrees Fahrenheit during the summer.
                                         </div>
                                     </div>
                                 </div>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingFour">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                            Can you remove anything from my credit report
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                            aria-expanded="false" aria-controls="collapseFour">
+                                            How often should I have my HVAC system serviced?
                                         </button>
                                     </h2>
-                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                    <div id="collapseFour" class="accordion-collapse collapse"
+                                        aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            Pede nullam nullas it ultricies corne mone molestie erate montes adipiscing leo est magnis imperdiet fermentum auctor hymenae laoreet tempor vestibulum dictumst
+                                            It's recommended to have your HVAC system serviced by a licensed contractor once a year, preferably in the spring or fall. Regular maintenance can help improve the efficiency and lifespan of your system.
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingEight">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                                            Engine suddenly lost power, went into limp mode
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseEight"
+                                            aria-expanded="false" aria-controls="collapseEight">
+                                            What are some signs that my HVAC system needs repair?
                                         </button>
                                     </h2>
-                                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                                    <div id="collapseEight" class="accordion-collapse collapse"
+                                        aria-labelledby="headingEight" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            Pede nullam nullas it ultricies corne mone molestie erate montes adipiscing leo est magnis imperdiet fermentum auctor hymenae laoreet tempor vestibulum dictumst
+                                            Some signs that your HVAC system may need repair include reduced airflow, strange noises, uneven heating or cooling, high humidity levels, and increased energy bills.
                                         </div>
                                     </div>
                                 </div>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingFive">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                            Cannot find any local tech familiar with this vintage
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseFive"
+                                            aria-expanded="false" aria-controls="collapseFive">
+                                            How can I improve the efficiency of my HVAC system?
                                         </button>
                                     </h2>
-                                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                    <div id="collapseFive" class="accordion-collapse collapse"
+                                        aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            Pede nullam nullas it ultricies corne mone molestie erate montes adipiscing leo est magnis imperdiet fermentum auctor hymenae laoreet tempor vestibulum dictumst
+                                            You can improve the efficiency of your HVAC system by regularly changing the air filter, sealing air leaks in your home, installing a programmable thermostat, and scheduling regular maintenance with a licensed contractor.
                                         </div>
                                     </div>
                                 </div>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingSix">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                            Transmission and shifting sensor no problems
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseSix"
+                                            aria-expanded="false" aria-controls="collapseSix">
+                                            What are some common HVAC system problems?
                                         </button>
                                     </h2>
-                                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                    <div id="collapseSix" class="accordion-collapse collapse"
+                                        aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            Pede nullam nullas it ultricies corne mone molestie erate montes adipiscing leo est magnis imperdiet fermentum auctor hymenae laoreet tempor vestibulum dictumst
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingSeven">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                            Can you remove anything from my credit report
-                                        </button>
-                                    </h2>
-                                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            Pede nullam nullas it ultricies corne mone molestie erate montes adipiscing leo est magnis imperdiet fermentum auctor hymenae laoreet tempor vestibulum dictumst
+                                            Common HVAC system problems include dirty air filters, refrigerant leaks, malfunctioning thermostats, faulty capacitors or motors, and clogged condensate drains.
                                         </div>
                                     </div>
                                 </div>
@@ -193,7 +201,6 @@
                 </div>
             </div>
         </section>
-        <!-- faq area end here -->
     </main>
 
   {% endblock body %}

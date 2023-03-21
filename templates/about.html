@@ -37,7 +37,7 @@
           
             {% post_to_telegram "{{service.title}} - Check it out!" object_or_url '<i class="fab fa-telegram-plane" aria-hidden="true"></i>'%}                       
         </div>
-        <div class="page-title-area pt-210 pb-180" data-background="assets/img/bg/page-banner.jpg">
+        <div class="page-title-area pt-210 pb-180" data-background="{% static 'img/about.jpg' %}">
             <div class="container">
                 <div class="page-title-icon">
                     <i class="flaticon-air-conditioner hero__icon hero__icon1"></i>
@@ -53,7 +53,7 @@
                                     <ul class="trail-items">
                                         <li class="trail-item trail-begin"><a href="{% url 'index' %}">Home</a>
                                         </li>
-                                        <li class="trail-item trail-end"><span>About</span></li>
+                                        <li class="trail-item trail-end"><span>About Us</span></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -72,12 +72,12 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="aabout-img img-lg mb-30 wow fadeInUp" data-wow-delay=".3s">
-                                        <img src="{% static 'assets/img/about/about-img-1.jpg' %}" class="img-fluid" alt="img">
+                                        <img data-src="{% static 'img/about/about-img-1.jpg' %}" class="lazy img-fluid" alt="img">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="aabout-img mb-30 wow fadeInUp" data-wow-delay=".5s">
-                                        <img src="{% static 'assets/img/about/about-img-2.jpg' %}" class="img-fluid" alt="img">
+                                        <img data-src="{% static 'img/about/about-img-2.jpg' %}" class="lazy img-fluid" alt="img">
                                     </div>
                                     <div class="aabout-img_text mb-30 black-soft-bg wow fadeInUp" data-wow-delay=".7s">
                                         <h2 class="aabout-img_text-title">{{information.projects}}+ <span>Project Done</span></h2>
@@ -89,19 +89,19 @@
                     <div class="col-lg-6 col-md-10">
                         <div class="aabout-text mr-150 mb-30">
                             <div class="section-title-wrapper mb-30 wow fadeInUp" data-wow-delay=".3s">
-                                <h6 class="subtitle mb-20"><img src="{% static 'assets/img/icon/subtitle-icon.png' %}"
-                                        class="img-fluid" alt="img"> About company</h6>
+                                <h6 class="subtitle mb-20"><img data-src="{% static 'img/icon/subtitle-icon.png' %}"
+                                        class="lazy img-fluid" alt="img"> About company</h6>
                                 <h2 class="section-title">We are most popular<br> Service & Product base company</h2>
                             </div>
                             <p class="mb-40 wow fadeInUp" data-wow-delay="0.6s">"Our mission is to provide efficient and effective AC services and product at fair prices, with a focus on customer satisfaction and long-term relationships."</p>
-                            <div class="aabout-qoute mb-50 wow fadeInUp" data-wow-delay="0.9s">
+                            <div class="aabout-qoute mb-50 wow fadeInUp" data-wow-delay="0.7s">
                                 <i class="fas fa-quote-right float-bob-x"></i>
                                 <h4 class="z-index">Don’t feel heat when there is best air <br>conditioning seat </h4>
                             </div>
-                            <div class="aabout--profile__wrapper wow fadeInUp" data-wow-delay="1.2s">
+                            <div class="aabout--profile__wrapper wow fadeInUp" data-wow-delay=".8s">
                                 <div class="aabout--profile">
                                     <div class="aabout--profile__img">
-                                        <img src="{% static 'assets/img/icon/saeed.jpg' %}" class="img-fluid" alt="img">
+                                        <img data-src="{% static 'img/icon/saeed.jpg' %}" class="lazy img-fluid" alt="img">
                                     </div>
                                     <div class="aabout--profile__text">
                                         <h4>Saeed Lanjekar</h4>
@@ -117,7 +117,7 @@
         <!-- about area end here -->
 
         <!-- feature area start here -->
-        <section class="feature-area about-feature-area pt-115 pb-165"  data-background="{% static 'assets/img/bg/feature-bg.jpg' %}">
+        <section class="feature-area about-feature-area pt-115 pb-165" data-background="{% static 'img/bg/feature-bg.jpg' %}">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -129,7 +129,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-3 col-sm-6">
-                        <div class="afeature text-center mb-30 wow fadeInUp" data-wow-delay=".3s">
+                        <div class="afeature text-center mb-30 wow fadeInUp" data-wow-delay=".2s">
                             <div class="afeature__icon mb-35">
                                 <i class="flaticon-app"></i>
                             </div>
@@ -140,7 +140,7 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-sm-6">
-                        <div class="afeature text-center mb-30 wow fadeInUp" data-wow-delay=".6s">
+                        <div class="afeature text-center mb-30 wow fadeInUp" data-wow-delay=".4s">
                             <div class="afeature__icon mb-35">
                                 <i class="flaticon-money-bag"></i>
                             </div>
@@ -151,7 +151,7 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-sm-6">
-                        <div class="afeature text-center mb-30 wow fadeInUp" data-wow-delay=".9s">
+                        <div class="afeature text-center mb-30 wow fadeInUp" data-wow-delay=".6s">
                             <div class="afeature__icon mb-35">
                                 <i class="flaticon-message"></i>
                             </div>
@@ -162,7 +162,7 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-sm-6">
-                        <div class="afeature text-center mb-30 wow fadeInUp" data-wow-delay="1.2s">
+                        <div class="afeature text-center mb-30 wow fadeInUp" data-wow-delay=".8s">
                             <div class="afeature__icon mb-35">
                                 <i class="flaticon-happiness"></i>
                             </div>
@@ -183,7 +183,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="section-title-wrapper mb-70 wow fadeInUp" data-wow-delay=".3s">
-                            <h6 class="subtitle mb-20"><img src="{% static 'assets/img/icon/subtitle-icon.png' %}" class="img-fluid" alt="img"> Client Feedback</h6>
+                            <h6 class="subtitle mb-20"><img data-src="{% static 'img/icon/subtitle-icon.png' %}" class="lazy img-fluid" alt="img"> Client Feedback</h6>
                             <h2 class="section-title">Every customer satisfied <br>and feedback us </h2>
                         </div>
                     </div>
@@ -191,13 +191,13 @@
                 <div class="testimonial-active-3 swiper-container pb-35">
                     <div class="swiper-wrapper">
                         {% for test in testimonial %}
-                        <div class="atestimonial__3 mb-30 swiper-slide wow fadeInUp" data-wow-delay=".3s">
+                        <div class="atestimonial__3 mb-30 swiper-slide wow fadeInUp" data-wow-delay=".{{test.id}}s">
                             <div class="atestimonial__3--text mb-10 about__test--text">
-                                <p>{{test.comment}}</p>
+                                <p style="text-align: justify;">{{test.comment}}</p>
                             </div>
                             <div class="atestimonial__3--client about__test--client">
                                 <div class="atestimonial__3--client__img">
-                                    <img src="{{test.photo.url}}" class="img-fluid" alt="{{test.name}}">
+                                    <img data-src="{{test.photo.url}}" class="lazy img-fluid" alt="{{test.name}}">
                                 </div>
                                 <div class="atestimonial__3--client__text">
                                     <span>{{test.designation}}</span>
@@ -225,7 +225,7 @@
                         {% for client in clients %}
                         <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay=".{{client.id}}s"
                             data-swiper-autoplay="5000">
-                            <a href="#"><img src="{{client.logo.url}}" class="img-fluid" alt="img"></a>
+                            <img data-src="{{client.logo.url}}" class="lazy img-fluid" alt="img">
                         </div>
                         {% endfor %}
                     </div>

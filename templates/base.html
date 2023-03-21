@@ -7,23 +7,23 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title %}{% endblock title %} | Burak HVAC</title>
     <meta name="description" content="">
+    <meta property="og:title" content="Burak HVAC Pvt. Ltd.">
+    <meta property="og:description" content="Providing the best in class AC's at affordable range of prices.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{% static 'img/burak.png' %}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/favicon.png' %}">
+    <meta property="og:image" content="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.png' %}">
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/custom-animation.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/venobox.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/backToTop.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/default.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/meanmenu.css' %}">
+    <link rel="stylesheet" href="{% static 'css/venobox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 
 <body>
@@ -35,6 +35,9 @@
         </div>
     </div> preloader end --> 
 
+    <a href="https://api.whatsapp.com/send?phone=51000000000&text=Hello Burak Hvac" class="whatsapp-button" target="_blank" >
+        <img src="https://i.ibb.co/VgSspjY/whatsapp-button.png" alt="burak whatsapp">
+    </a>
     <!-- back to top start -->
     <div class="progress-wrap">
         <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
@@ -77,7 +80,7 @@
                 <div class="row align-items-center">
                     <div class="col-xl-2 col-lg-2 col-8">
                         <div class="header-logo pt-15 pb-15">
-                            <a href="{% url 'index' %}" style="font-size:25px"><img src="{% static 'assets/img/icon/subtitle-icon.png' %}" class="img-fluid" alt="Burak HVAC Logo"><b> Burak HVAC</b></a>
+                            <a href="{% url 'index' %}" style="font-size:25px"><img src="{% static 'img/icon/subtitle-icon.png' %}" class="img-fluid" alt="Burak HVAC Logo"><b> Burak HVAC</b></a>
                         </div>
                     </div>
                     <div class="col-xl-8 col-lg-8 col-4">
@@ -141,7 +144,7 @@
 
 {% endblock body %}
     <!-- footer area start here -->
-    <footer data-background="{% static 'assets/img/footer/footer-bg.jpg' %}">
+    <footer data-background="{% static 'img/footer-bg.jpg' %}">
         <section class="footer-area pt-115 pb-90">
             <div class="container">
                 <div class="row">
@@ -210,19 +213,23 @@
     <!-- footer area end here -->
 
     <!-- JS here -->
-    <script src="{% static 'assets/js/vendor/jquery.min.js' %}"></script>
-    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
-    <script src="{% static 'assets/js/slick.min.js' %}"></script>
-    <script src="{% static 'assets/js/swiper-bundle.js' %}"></script>
-    <script src="{% static 'assets/js/venobox.min.js' %}"></script>
-    <script src="{% static 'assets/js/backToTop.js' %}"></script>
-    <script src="{% static 'assets/js/jquery.meanmenu.min.js' %}"></script>
-    <script src="{% static 'assets/js/imagesloaded.pkgd.min.js' %}"></script>
-    <script src="{% static 'assets/js/ajax-form.js' %}"></script>
-    <script src="{% static 'assets/js/wow.min.js' %}"></script>
-    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <script src="{% static 'js/swiper-bundle.js' %}"></script>
+    <script src="{% static 'js/venobox.min.js' %}"></script>
+    <script src="{% static 'js/backToTop.js' %}"></script>
+    <script src="{% static 'js/jquery.meanmenu.min.js' %}"></script>
+    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/ajax-form.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
     <script>
+        var lazyLoadInstance = new LazyLoad({
+            // Your custom settings go here
+          });
         const froalaTag = document.querySelectorAll('[data-f-id="pbf"]');
         froalaTag.forEach(e => e.remove())
     </script>

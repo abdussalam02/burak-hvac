@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Service, ServiceDetail, Product, ProductDetail, Client, Career, Job, Subscription, Blog, Information, Carousal, BlogDetail, Project, Testimonial
+from .models import Service, ServiceDetail, Product, ProductDetail, Client, Career, Job, Subscription, Blog, Information, Carousal, BlogDetail, Portfolio, Testimonial
 
 class ServiceDetailAdmin(admin.StackedInline):
     model = ServiceDetail
@@ -44,12 +44,12 @@ class CarousalAdmin(admin.ModelAdmin):
     class Meta:
        model = Carousal
 
-@admin.register(Project)
-class ProjectAdmin(admin.ModelAdmin):
+@admin.register(Portfolio)
+class PortfolioAdmin(admin.ModelAdmin):
     fields = ['name', 'category', 'image', 'image_tag']
     readonly_fields = ['image_tag']
     class Meta:
-       model = Project
+       model = Portfolio
 
 @admin.register(Client)
 class ClientAdmin(admin.ModelAdmin):

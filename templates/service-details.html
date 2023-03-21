@@ -39,7 +39,7 @@
 
         </div>
         <!-- page title area start here -->
-        <div class="page-title-area pt-210 pb-180" data-background="assets/img/bg/page-banner.jpg">
+        <div class="page-title-area pt-210 pb-180" data-background="{% static 'img/service.jpg' %}">
             <div class="container">
                 <div class="page-title-icon">
                     <i class="flaticon-air-conditioner hero__icon hero__icon1"></i>
@@ -91,10 +91,10 @@
                     <div class="col-lg-8">
                         <div class="service-details-wrapper mb-50">
                             <div class="section-title-wrapper mb-15 wow fadeInUp" data-wow-delay=".3s">
-                                <h2 class="section-title">{{service.title}}</h2>
+                                <h2 class="section-title text-center">{{service.title}}</h2>
                             </div>
                             <div class="mb-30 fix wow fadeInUp" data-wow-delay=".5s">
-                                <img src="{{service.image.url}}" class="serv-det mx-auto d-block" alt="{{service.title}}">
+                                <img data-src="{{service.image.url}}" class="lazy serv-det mx-auto d-block" alt="{{service.title}}">
                             </div>
                             <p class="mb-30 wow fadeInUp" data-wow-delay=".4s" style="text-align:justify">{{service.description}}</p>
                         </div>
@@ -105,7 +105,7 @@
                                 {% if detail.align_image == "LEFT" %}
                                     <div class="col-xl-6 col-lg-6 mt-40 mb-40">
                                         <div class="project--details__img mb-30 wow fadeInUp" data-wow-delay=".3s">
-                                            <img src="{{detail.image.url}}" class="img-fluid mx-auto d-block" alt="{{detail.heading}}" width="400px", height="400px">
+                                            <img data-src="{{detail.image.url}}" class="lazy img-fluid mx-auto d-block" alt="{{detail.heading}}" width="400px", height="400px">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 mt-40 mb-40">
@@ -123,7 +123,7 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 mt-40 mb-40">
                                         <div class="project--details__img mb-30 wow fadeInUp" data-wow-delay=".3s">
-                                            <img src="{{detail.image.url}}" class="img-fluid mx-auto d-block" alt="{{detail.heading}}" width="400px", height="400px">
+                                            <img data-src="{{detail.image.url}}" class="lazy img-fluid mx-auto d-block" alt="{{detail.heading}}" width="400px", height="400px">
                                         </div>
                                     </div>
                                 {% endif %}
@@ -148,7 +148,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="ablog mb-105 wow fadeInUp"  data-wow-delay=".3s">
                             <div class="ablog__img">
-                                <img src="{{service.image.url}}" class="img-fluid thumbnail" alt="{{service.title}}">
+                                <img data-src="{{service.image.url}}" class="lazy img-fluid thumbnail" alt="{{service.title}}">
                             </div>
                             <div class="ablog__text ablog__text--service">
                                 <h4 class="ablog__text--title"><a href="{% url 'service_detail' service.slug %}">{{service.title}}</a></h4>
@@ -164,6 +164,24 @@
             </div>
         </section>
         {% endif %}
+        <!-- newsletter area start here -->
+        <section class="newsletter-area-3 wow fadeInUp mb-30" data-wow-delay=".5s">
+            <div>
+                <div class="news__service black-soft-bg text-center pt-30 pb-30">
+                    <div class="section-title-wrapper mb-50">
+                        <h2 class="section-title text-white">If you like our service. Feel free to contact us</h2>
+                    </div>
+                    <div class="news__service--number">
+                        <div class="news__service--number__icon">
+                            <img data-src="{% static 'img/icon/subs-icon-1.png' %}" class="img-fluid" alt="img">
+                        </div>
+                        <div class="news__service--number__btn">
+                            <a href="tel:{{information.phone_2}}" class="theme-btn">{{information.phone}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
 {% endblock body %}
