@@ -12,17 +12,16 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="{% static 'img/burak.png' %}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:image" content="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg">
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.png' %}">
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0-beta2/css/bootstrap.min.css" integrity="sha512-aqT9YD5gLuLBr6ipQAS+72o5yHKzgZbGxEh6iY8lW/r6gG14e2kBTAJb8XrxzZrMOgSmDqtLaF76T0Z6YY2IHg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" integrity="sha512-doJrC/ocU8VGVRx3O9981+2aYUn3fuWVWvqLi1U+tA2MWVzsw+NVKq1PrENF03M+TYBP92PnYUlXFH1ZW0FpLw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/default.css' %}">
     <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/meanmenu.css' %}">
-    <link rel="stylesheet" href="{% static 'css/venobox.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/swiper-bundle.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.9.2/venobox.min.css" integrity="sha512-e+0yqAgUQFoRrJ4pZigQXpOE0S7J9IGwmgH801h4H5ODqOCG8/GRfXHQ+9ab754NL79O7wDwdjwY3CcU8sEANg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.5.3/swiper-bundle.min.css" integrity="sha512-dyhCm56bLHnyu21gROPZwclvKzwszrpvsz4PLLgH7kmQm8YIZISE6veUpvFXv2AXg+ZS5LJrMnqzoka+ZHd4fw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 
@@ -34,10 +33,8 @@
             <span></span>
         </div>
     </div> preloader end --> 
-
-    <a href="https://api.whatsapp.com/send?phone=51000000000&text=Hello Burak Hvac" class="whatsapp-button" target="_blank" >
-        <img src="https://i.ibb.co/VgSspjY/whatsapp-button.png" alt="burak whatsapp">
-    </a>
+    {% block whatsapp %}
+    {% endblock whatsapp %}
     <!-- back to top start -->
     <div class="progress-wrap">
         <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
@@ -149,7 +146,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-sm-6">
-                        <div class="footer__widget mb-30 wow fadeInUp" data-wow-delay=".3s">
+                        <div class="footer__widget mb-30 wow fadeInUp" data-wow-delay=".2s">
                             <h4 class="footer__widget--title">About Us</h4>
                             <p>"Our mission is to provide efficient and effective AC services at fair prices, with a
                                 focus on customer satisfaction and long-term relationships."</p>
@@ -160,7 +157,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
-                        <div class="footer__widget mb-30 pl-80 wow fadeInUp" data-wow-delay=".6s">
+                        <div class="footer__widget mb-30 pl-80 wow fadeInUp" data-wow-delay=".4s">
                             <h4 class="footer__widget--title">Quick Links</h4>
                             <ul class="widget__links">
                                 <li><a href="{% url 'index' %}">HOME</a></li>
@@ -177,7 +174,7 @@
 
                     {% endblock faddress %}
                     <div class="col-lg-3 col-sm-6">
-                        <div class="footer__widget mb-30 wow fadeInUp" data-wow-delay="1.2s">
+                        <div class="footer__widget mb-30 wow fadeInUp" data-wow-delay=".8s">
                             <h4 class="footer__widget--title">Newsletter</h4>
                             <p>Get every week update from Burak HVAC</p>
                             <form action="{% url 'subscribe' %}" method="post" class="widget__subscribe">
@@ -185,7 +182,7 @@
                                 <div class="field">
                                     <input name="email" type="email" placeholder="Enter Email">
                                 </div>
-                                <button type="submit" class="theme-btn">Subscirbe Now</button>
+                                <button type="submit" class="theme-btn">Subscribe Now</button>
                             </form>
                         </div>
                     </div>
@@ -213,17 +210,15 @@
     <!-- footer area end here -->
 
     <!-- JS here -->
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
-    <script src="{% static 'js/slick.min.js' %}"></script>
-    <script src="{% static 'js/swiper-bundle.js' %}"></script>
-    <script src="{% static 'js/venobox.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0-beta2/js/bootstrap.bundle.min.js" integrity="sha512-43iShtbiyImxjjU4a9rhXBy7eKtIsrpll8xKhe1ghKqh5NyfME8phZs5JRFZpRBe1si44WM3tNmnqMym7JRmDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.5/isotope.pkgd.min.js" integrity="sha512-pTyLt2tKREvSiNYM21FRWRQtjOt/hZNYI+BRQx9yDObvcIydJ+3Ds/DxAKT/vK7D7ekSFfpubYh7ckity28MKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.5.3/swiper-bundle.min.js" integrity="sha512-f5raXjCuok1zLkRjJJm7AMVZ65Kgr8SK85CMOZJ5ytAoHLi/Z+c3T78tm1fYuAVaeo6qLUySmE1rqY8hjSy6mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.9.2/venobox.min.js" integrity="sha512-RTKtgpCMMgKKvDrJsyt5wdzR2IjHJiz/b2rsyBgm8qNeB3KPNdCvWkh9ytMcdAwu9qq8OX2fvy5wTyyA8sqXZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{% static 'js/backToTop.js' %}"></script>
     <script src="{% static 'js/jquery.meanmenu.min.js' %}"></script>
-    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
-    <script src="{% static 'js/ajax-form.js' %}"></script>
-    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha512-S5PZ9GxJZO16tT9r3WJp/Safn31eu8uWrzglMahDT4dsmgqWonRY9grk3j+3tfuPr9WJNsfooOR7Gi7HL5W2jw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    <script src="{% static 'js/ajax-form.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{% static 'js/main.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
     <script>

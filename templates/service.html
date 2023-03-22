@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Services{% endblock title %}
+{% block whatsapp %}
+<a href="{{information.whatsapp}}" class="whatsapp-button" target="_blank" >
+    <img src="{% static 'img/whatsapp-button.png' %}" alt="burak whatsapp">
+</a>
+{% endblock whatsapp %}
 {% block address %} <a href="https://www.google.com/maps/place/{{information.address}}">{{information.address}}</a> {% endblock address %}
 {% block email %}<a href="mailto:{{information.email}}"><span class="__cf_email__" data-cfemail="771e19111837040e141f1845435914181a">{{information.email}}</span></a>{% endblock email %}
 {% block header-socials %}
@@ -32,11 +37,11 @@
             {% load social_share %}
             {% post_to_facebook object_or_url '<i class="fab fa-facebook-f" aria-hidden="true"></i>' %}
 
-            {% post_to_twitter "{{service.title}} - Check it out!" object_or_url '<i class="fab fa-twitter" aria-hidden="true"></i>'%}
+            {% post_to_twitter "Check out the services offered at Burak HVAC Pvt. Ltd." object_or_url '<i class="fab fa-twitter" aria-hidden="true"></i>'%}
           
             {% post_to_whatsapp object_or_url '<i class="fab fa-whatsapp"></i>'%}
           
-            {% post_to_telegram "{{service.title}} - Check it out!" object_or_url '<i class="fab fa-telegram-plane" aria-hidden="true"></i>'%}                       
+            {% post_to_telegram "Check out the services offered at Burak HVAC Pvt. Ltd." object_or_url '<i class="fab fa-telegram-plane" aria-hidden="true"></i>'%}                       
 
         </div>
         <!-- page title area start here -->

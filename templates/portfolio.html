@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block title %}Portfolio{% endblock title %}
+{% block whatsapp %}
+<a href="{{information.whatsapp}}" class="whatsapp-button" target="_blank" >
+    <img src="{% static 'img/whatsapp-button.png' %}" alt="burak whatsapp">
+</a>
+{% endblock whatsapp %}
 {% block address %} <a href="https://www.google.com/maps/place/{{information.address}}">{{information.address}}</a> {% endblock address %}
 {% block email %}<a href="mailto:{{information.email}}"><span class="__cf_email__" data-cfemail="771e19111837040e141f1845435914181a">{{information.email}}</span></a>{% endblock email %}
 {% block header-socials %}
@@ -33,11 +38,11 @@
             {% load social_share %}
             {% post_to_facebook object_or_url '<i class="fab fa-facebook-f" aria-hidden="true"></i>' %}
 
-            {% post_to_twitter "{{service.title}} - Check it out!" object_or_url '<i class="fab fa-twitter" aria-hidden="true"></i>'%}
+            {% post_to_twitter "Check out our portfolio page!" object_or_url '<i class="fab fa-twitter" aria-hidden="true"></i>'%}
           
             {% post_to_whatsapp object_or_url '<i class="fab fa-whatsapp"></i>'%}
           
-            {% post_to_telegram "{{service.title}} - Check it out!" object_or_url '<i class="fab fa-telegram-plane" aria-hidden="true"></i>'%}                       
+            {% post_to_telegram "Check out our portfolio page!" object_or_url '<i class="fab fa-telegram-plane" aria-hidden="true"></i>'%}                       
 
         </div>
         <!-- page title area start here -->
@@ -117,9 +122,9 @@
         <!-- newsletter area start here -->
         <section class="newsletter-area-3 wow fadeInUp" data-wow-delay=".5s">
             <div class="newsletter__wrapper--3">
-                <div class="news__subscribe theme-bg text-center pt-110 pb-100">
+                <div class="news__subscribe theme-bg text-center pt-20 pb-20">
                     <div class="section-title-wrapper mb-50">
-                        <h2 class="section-title text-white">Weekly offers or update<br> from newsletter</h2>
+                        <h3 class="section-title text-white">Weekly offers or update<br> from newsletter</h3>
                     </div>
                     <form action="{% url 'subscribe' %}" method="post">
                         {% csrf_token %}
@@ -129,9 +134,9 @@
                         <button class="theme-btn black-btn">Subscribe</button>
                     </form>
                 </div>
-                <div class="news__service black-soft-bg text-center pt-110 pb-120">
+                <div class="news__service black-soft-bg text-center pt-20 pb-20">
                     <div class="section-title-wrapper mb-50">
-                        <h2 class="section-title text-white">Emergency installation or <br>repair services</h2>
+                        <h3 class="section-title text-white">Emergency installation or <br>repair services</h3>
                     </div>
                     <div class="news__service--number">
                         <div class="news__service--number__icon">

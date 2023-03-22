@@ -5,6 +5,10 @@ from .models import *
 from django.conf import settings
 from django.core.mail import send_mail
 from compression_middleware.decorators import compress_page
+from django.core.mail import send_mail, EmailMultiAlternatives
+from django.conf import settings
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 @compress_page
 def index(request):
@@ -14,7 +18,7 @@ def index(request):
     testimonial = Testimonial.objects.all()
     clients = Client.objects.all()
     cars = Carousal.objects.all()
-    return render(request, 'index.html', {'products':products, 'services': services, 'prods':products[:3], 'servs': services[:4], 'information':info, 'carousals': cars, 'tag': "Salam", 'testimonial': testimonial, 'clients': clients})
+    return render(request, 'index.html', {'products':products, 'services': services, 'prods':products[:3], 'servs': services[:4], 'information':info, 'carousals': cars, 'testimonial': testimonial, 'clients': clients})
 
 @compress_page
 def about(request):
@@ -42,12 +46,14 @@ def service_details(request, slug):
     related = Service.objects.all().exclude(id=service.id).reverse()[:3]
     return render(request, "service-details.html", {"service":service, 'products':products, 'services': services, 'details': details, 'information':info, "related_services": related})
 
+@compress_page
 def products(request):
     products = Product.objects.all()
     services = Service.objects.all()
     info = Information.objects.get(id=1)
     return render(request, 'products.html', {'products':products, 'services': services, 'information':info})
-    
+
+@compress_page 
 def product_details(request, slug):
     products = Product.objects.all()
     services = Service.objects.all()
@@ -57,22 +63,14 @@ def product_details(request, slug):
     related = Product.objects.all().exclude(id=product.id).reverse()[:3]
     return render(request, 'product-details.html', {'products':products, 'services': services, 'product':product, "details":data, 'information':info, "related_products": related})
 
-
-def jobs(request):
-    products = Product.objects.all()
-    services = Service.objects.all()
-    info = Information.objects.get(id=1)
-    data = Job.objects.all()
-    return render(request, 'jobs.html', {"jobs": data, 'information':info, 'products':products, 'services': services,}) 
-
-
+@compress_page
 def contact(request):
     products = Product.objects.all()
     services = Service.objects.all()
     info = Information.objects.get(id=1)
     return render(request, 'contact.html', {'information':info, 'products':products, 'services': services})
 
-
+@compress_page
 def blogs(request):
     products = Product.objects.all()
     services = Service.objects.all()
@@ -80,7 +78,7 @@ def blogs(request):
     info = Information.objects.get(id=1)
     return render(request, "blog.html", {"blogs":data, 'information':info, 'products':products, 'services': services})
 
-
+@compress_page
 def blog_details(request, slug):
     products = Product.objects.all()
     services = Service.objects.all()
@@ -96,26 +94,21 @@ def message(request):
     subject = request.POST.get('subject')
     message = request.POST.get('message')
     if phone !=  None:
-        text = f'''You have received a message from Burak HVAC Pvt. Ltd. website.
-        Name: {name}
-        Phone: {phone}
-        Message: {message}'''
+        text = 'You have received a message from Burak HVAC Pvt. Ltd. website.\nName: {name}\nPhone: {phone}\nMessage: {message}'
         email_from = settings.EMAIL_HOST_USER
         recipient_list = ['shaikharshi69@gmail.com', 'iamaladdin02@gmail.com']
         send_mail(subject=subject, message=text, from_email=email_from, recipient_list=recipient_list )
         # messages.success(request, 'Email Sent Successfully')
         return redirect('index')
     else:
-        text = f'''You have received a message from Burak HVAC Pvt. Ltd. website.
-        Name: {name}
-        Email: {email}
-        Message: {message}'''
+        text = f'''You have received a message from Burak HVAC Pvt. Ltd. website.\nName: {name}\nEmail: {email}\nMessage: {message}'''
         email_from = settings.EMAIL_HOST_USER
         recipient_list = ['shaikharshi69@gmail.com', 'iamaladdin02@gmail.com']
         send_mail(subject=subject, message=text, from_email=email_from, recipient_list=recipient_list )
         # messages.success(request, 'Email Sent Successfully')
         return redirect('contact')
 
+@compress_page
 def portfolio(request):
     products = Product.objects.all()
     services = Service.objects.all()
@@ -125,23 +118,29 @@ def portfolio(request):
 
 def subscribe(request):
     if request.method == 'POST':
-        email = request.POST.get('email')
+        to = request.POST.get('email')
         try:
-            validate_email(email)
+            validate_email(to)
         except ValidationError as e:
             return redirect('index')
 
-        if not Subscription.objects.filter(email=email).exists():
-            Subscription(email=email).save()
-            subject = 'Thank you for subscribing to our website.'
-            text = f'''Your subscription has been confirmed!
-            You are now part of our exclusive group of subscribers who will be the first to hear about our new products, services and promotions.'''
-            email_from = settings.EMAIL_HOST_USER
-            recipient_list = [email]
-            send_mail(subject=subject, message=text, from_email=email_from, recipient_list=recipient_list )
-            # messages.success(request, 'Email Sent Successfully')
+        if not Subscription.objects.filter(email=to).exists():
+            Subscription(email=to).save()
+            info = Information.objects.get(id=1)
+            product = Product.objects.all()[:3]
+            html_content = render_to_string('subscribe.html', {'information':info, 'products':product})
+            text_content = strip_tags(html_content)
+            email = EmailMultiAlternatives(
+                'Thank you for subscribing to our website.', 
+                text_content,
+                settings.EMAIL_HOST_USER,
+                [to]
+            )
+            email.attach_alternative(html_content,'text/html')
+            email.send()
     return redirect('index')
 
+@compress_page
 def jobs(request):
     products = Product.objects.all()
     services = Service.objects.all()
@@ -149,7 +148,7 @@ def jobs(request):
     data = Job.objects.all()
     return render(request, 'jobs.html', {"jobs": data, 'information':info, 'products':products, 'services': services})
 
-
+@compress_page
 def careers(request, id):
     products = Product.objects.all()
     services = Service.objects.all()
@@ -178,6 +177,7 @@ def careers(request, id):
         return redirect('career', id=id)
     return render(request, 'career.html', {"career": car, 'information':info, 'products':products, 'services': services})
 
+@compress_page
 def faqs(request):
     products = Product.objects.all()
     services = Service.objects.all()

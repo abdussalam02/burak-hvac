@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Faq's{% endblock title %}
+{% block whatsapp %}
+<a href="{{information.whatsapp}}" class="whatsapp-button" target="_blank" >
+    <img src="{% static 'img/whatsapp-button.png' %}" alt="burak whatsapp">
+</a>
+{% endblock whatsapp %}
 {% block address %} <a href="https://www.google.com/maps/place/{{information.address}}">{{information.address}}</a> {% endblock address %}
 {% block email %}<a href="mailto:{{information.email}}"><span class="__cf_email__" data-cfemail="771e19111837040e141f1845435914181a">{{information.email}}</span></a>{% endblock email %}
 {% block header-socials %}
@@ -32,11 +37,11 @@
             {% load social_share %}
             {% post_to_facebook object_or_url '<i class="fab fa-facebook-f" aria-hidden="true"></i>' %}
 
-            {% post_to_twitter "{{service.title}} - Check it out!" object_or_url '<i class="fab fa-twitter" aria-hidden="true"></i>'%}
+            {% post_to_twitter "Check out! Frequently asked questions on AC's" object_or_url '<i class="fab fa-twitter" aria-hidden="true"></i>'%}
           
             {% post_to_whatsapp object_or_url '<i class="fab fa-whatsapp"></i>'%}
           
-            {% post_to_telegram "{{service.title}} - Check it out!" object_or_url '<i class="fab fa-telegram-plane" aria-hidden="true"></i>'%}                       
+            {% post_to_telegram "Check out! Frequently asked questions on AC's" object_or_url '<i class="fab fa-telegram-plane" aria-hidden="true"></i>'%}                       
 
         </div>
         <!-- page title area start here -->
@@ -71,7 +76,7 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="afaq__banner mb-50 wow fadeInUp" data-wow-delay=".3s">
-                            <img src="assets/img/faq/faq-img-4.png" class="img-fluid" alt="img">
+                            <img src="{% static 'img/faq/faq-img-4.png' %}" class="img-fluid" alt="img">
                             <div class="afaq__banner--text text-center">
                                 <h2 class="afaq__banner--text__title">Need Free <br>Consultancy</h2>
                                 <p>Feel Free to Contact us </p>
@@ -84,7 +89,7 @@
                     <div class="col-lg-8">
                         <div class="afaq__text afaq__text--3 mb-30 mr-165 wow fadeInUp" data-wow-delay=".6s">
                             <div class="section-title-wrapper mb-50">
-                                <h6 class="subtitle mb-20"><img src="assets/img/icon/subtitle-icon.png"
+                                <h6 class="subtitle mb-20"><img src="{% static 'img/icon/subtitle-icon.png' %}"
                                         class="img-fluid" alt="img"> Common Question</h6>
                                 <h2 class="section-title">Solutions for an every <br>repair problem</h2>
                             </div>

@@ -13,6 +13,7 @@ class Information(models.Model):
     experience = models.PositiveIntegerField(default=1)
     address = models.CharField(max_length=255)
     email = models.EmailField(max_length=200)
+    whatsapp = models.URLField(max_length=200)
     facebook = models.URLField(max_length=200)
     twitter = models.URLField(max_length=200)
     instagram = models.URLField(max_length=200)

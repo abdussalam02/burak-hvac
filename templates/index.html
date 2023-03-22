@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Home{% endblock title %}
+{% block whatsapp %}
+<a href="{{information.whatsapp}}" class="whatsapp-button" target="_blank" >
+    <img src="{% static 'img/whatsapp-button.png' %}" alt="burak whatsapp">
+</a>
+{% endblock whatsapp %}
 {% block address %} <a href="https://www.google.com/maps/place/{{information.address}}">{{information.address}}</a> {% endblock address %}
 {% block email %}<a href="mailto:{{information.email}}"><span class="__cf_email__" data-cfemail="771e19111837040e141f1845435914181a">{{information.email}}</span></a>{% endblock email %}
 {% block header-socials %}
@@ -247,8 +252,8 @@
                         <ul class="nav custom-service-tab" id="myTab" role="tablist">
                             {% for service in servs %}
                             <li class="nav-item" role="presentation">
-                                <div {% if forloop.counter == 2 %}class="nav-link active" {% else %}class="nav-link"{% endif %}  id="{{tag}}{{service.id}}-tab" data-bs-toggle="tab" data-bs-target="#{{tag}}{{service.id}}"
-                                    role="tab" aria-controls="{{tag}}{{service.id}}" {% if forloop.counter == 1 %} aria-selected="true" {% else %}aria-selected="false"{% endif %} >
+                                <div {% if forloop.counter == 2 %}class="nav-link active" {% else %}class="nav-link"{% endif %}  id="Salam{{service.id}}-tab" data-bs-toggle="tab" data-bs-target="#Salam{{service.id}}"
+                                    role="tab" aria-controls="Salam{{service.id}}" {% if forloop.counter == 1 %} aria-selected="true" {% else %}aria-selected="false"{% endif %} >
                                     <div class="aservice-box wow fadeInUp" data-wow-delay=".3s">
                                         <div class="aservice mb-30 ">
                                             <div class="aservice__icon z-index">
@@ -268,9 +273,9 @@
                     <div class="col-lg-6">
                         <div class="tab-content" id="myTabContent">
                             {% for service in servs %}
-                            <div {% if forloop.counter == 2 %}class="tab-pane fade show active" {% else %}class="tab-pane fade"{% endif %}  id="{{tag}}{{service.id}}" role="tabpanel" aria-labelledby="{{tag}}{{service.id}}-tab">
+                            <div {% if forloop.counter == 2 %}class="tab-pane fade show active" {% else %}class="tab-pane fade"{% endif %}  id="Salam{{service.id}}" role="tabpanel" aria-labelledby="Salam{{service.id}}-tab">
                                 <div class="aservice__img mb-30">
-                                    <img data-src="{{service.image.url}}" class="lazy img-fluid" alt="{{service.title}}">
+                                    <img data-src="{{service.image.url}}" style="max-height: 550px" class="lazy img-fluid h-80" alt="{{service.title}}">
                                     <div class="aservice__img--text">
                                         <p>"{{service.description|truncatechars:150}}"</p>
                                         <a href="{% url 'service_detail' service.slug %}" class="aservice__img--text__link">{{service.title}}
@@ -309,13 +314,13 @@
                                 <input type="tel" required="1" name="phone" placeholder="Phone Number">
                                 <div class="select__field--arrow">
                                     <select name="subject">
-                                        <option value="">Installation & Commissioning</option>
-                                        <option value="">Annual Maintenance Contract / CMC</option>
-                                        <option value="">Repairing and Services</option>
-                                        <option value="">AC on rent</option>
-                                        <option value="">AC shifting</option>
-                                        <option value="">AC Purchase</option>
-                                        <option value="">AC Sales</option>
+                                        <option value="Installation & Commissioning">Installation & Commissioning</option>
+                                        <option value="Annual Maintenance Contract / CMC">Annual Maintenance Contract / CMC</option>
+                                        <option value="Repairing and Services">Repairing and Services</option>
+                                        <option value="AC on rent">AC on rent</option>
+                                        <option value="AC shifting">AC shifting</option>
+                                        <option value="AC Purchase">AC Purchase</option>
+                                        <option value="AC Sales">AC Sales</option>
                                     </select>
                                 </div>
                                 <textarea name="message" required="1" placeholder="Write Message"></textarea>
@@ -498,7 +503,7 @@
 {% endblock phone %}
 {% block faddress %}
 <div class="col-lg-3 col-sm-6">
-    <div class="footer__widget mb-30 pl-30 wow fadeInUp" data-wow-delay=".9s">
+    <div class="footer__widget mb-30 pl-30 wow fadeInUp" data-wow-delay=".6s">
         <h4 class="footer__widget--title">Contact Info</h4>
         <ul class="widget__contact">
             <li></li>
